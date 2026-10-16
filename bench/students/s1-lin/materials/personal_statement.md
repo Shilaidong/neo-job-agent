@@ -1,0 +1,5 @@
+# Personal Statement (final, approved by student 2026-09-10)
+
+I first met distributed systems through failure: a campus course-selection site that collapsed every semester. Rebuilding its queueing layer in my second year taught me that reliability is a design property, not an afterthought. Since then I have taken Operating Systems, Algorithms and Machine Learning, and spent an exchange semester at Kyoto University studying stream processing. During my internship at Formosa Cloud Systems I built a log-anomaly detector that now supports the weekly on-call review. These experiences left me with one question I cannot answer alone: how can a learning system stay trustworthy when the data it watches keeps changing? A taught master's programme with strong systems and machine-learning groups is the right place to pursue it. I hope to contribute a practitioner's curiosity, careful engineering habits, and the patience to measure before I claim.
+
+Research interest / proposed topic (one line): Robust anomaly detection for streaming system logs

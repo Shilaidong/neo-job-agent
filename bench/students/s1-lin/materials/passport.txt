@@ -1,0 +1,19 @@
+[護照資料頁 OCR 文字，掃描件右下角被手指遮住]
+
+REPUBLIC OF CHINA (TAIWAN)            PASSPORT 護照
+Type/型式  P      Code/代碼  TWN
+Passport No./護照號碼   360418527
+Surname/姓          LIN
+Given names/名      YU-TING
+Also known as/外文別名   (blank)
+Nationality/國籍    REPUBLIC OF CHINA
+Personal Id. No./身分證統一編號   (遮蓋)
+Sex/性別   F
+Date of birth/出生日期    03 NOV 2004
+Place of birth/出生地      TAINAN CITY
+Date of issue/發照日期     18 JUL 2022
+Date of expiry/效期截止日期   ██ ███ ████   ← 掃描時被遮住，看不清
+Authority/發照機關   MINISTRY OF FOREIGN AFFAIRS
+
+P<TWNLIN<<YU<TING<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+(第二行機讀碼同樣被遮住)

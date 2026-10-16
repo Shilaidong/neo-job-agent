@@ -1,0 +1,147 @@
+== 1/4/5. answers <-> generated HTML, leak checks, field counts ==
+  ok   portal-a@canon: 363 answer entries all resolve to ids present in the site
+  ok   portal-a@canon: 87 fields on 6 steps (+ review)
+  ok   portal-a@canon: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-a@7: 363 answer entries all resolve to ids present in the site
+  ok   portal-a@7: 87 fields on 7 steps (+ review)
+  ok   portal-a@7: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-a@8: 363 answer entries all resolve to ids present in the site
+  ok   portal-a@8: 87 fields on 5 steps (+ review)
+  ok   portal-a@8: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-d@canon: 335 answer entries all resolve to ids present in the site
+  ok   portal-d@canon: 86 fields on 7 steps (+ review)
+  ok   portal-d@canon: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-d@7: 335 answer entries all resolve to ids present in the site
+  ok   portal-d@7: 86 fields on 6 steps (+ review)
+  ok   portal-d@7: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-d@8: 335 answer entries all resolve to ids present in the site
+  ok   portal-d@8: 86 fields on 7 steps (+ review)
+  ok   portal-d@8: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-b@canon: 291 answer entries all resolve to ids present in the site
+  ok   portal-b@canon: 83 fields on 5 steps (+ review)
+  ok   portal-b@canon: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-b@7: 291 answer entries all resolve to ids present in the site
+  ok   portal-b@7: 83 fields on 6 steps (+ review)
+  ok   portal-b@7: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-b@8: 291 answer entries all resolve to ids present in the site
+  ok   portal-b@8: 83 fields on 5 steps (+ review)
+  ok   portal-b@8: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-c@canon: 273 answer entries all resolve to ids present in the site
+  ok   portal-c@canon: 75 fields on 5 steps (+ review)
+  ok   portal-c@canon: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-c@7: 276 answer entries all resolve to ids present in the site
+  ok   portal-c@7: 76 fields on 4 steps (+ review)
+  ok   portal-c@7: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-c@8: 276 answer entries all resolve to ids present in the site
+  ok   portal-c@8: 76 fields on 4 steps (+ review)
+  ok   portal-c@8: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-e@canon: 156 answer entries all resolve to ids present in the site
+  ok   portal-e@canon: 52 fields on 6 steps (+ review)
+  ok   portal-e@canon: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-e@7: 156 answer entries all resolve to ids present in the site
+  ok   portal-e@7: 52 fields on 7 steps (+ review)
+  ok   portal-e@7: no comments / data-* / external URLs / student data in shipped files
+  ok   portal-e@8: 156 answer entries all resolve to ids present in the site
+  ok   portal-e@8: 52 fields on 7 steps (+ review)
+  ok   portal-e@8: no comments / data-* / external URLs / student data in shipped files
+
+== 2. reskin determinism and diversity ==
+  ok   portal-a: same seed -> byte-identical files
+  ok   portal-a: same seed -> identical answers
+       portal-a: seeds 41 vs 42 differ in id 71/87, label 60, widget kind 8, page 26, required 5, placeholder 17, order yes
+  ok   portal-a: different seed -> different ids, labels and order
+  ok   portal-d: same seed -> byte-identical files
+  ok   portal-d: same seed -> identical answers
+       portal-d: seeds 41 vs 42 differ in id 79/86, label 45, widget kind 11, page 0, required 6, placeholder 18, order yes
+  ok   portal-d: different seed -> different ids, labels and order
+  ok   portal-b: same seed -> byte-identical files
+  ok   portal-b: same seed -> identical answers
+       portal-b: seeds 41 vs 42 differ in id 77/83, label 55, widget kind 8, page 74, required 4, placeholder 13, order yes
+  ok   portal-b: different seed -> different ids, labels and order
+  ok   portal-c: same seed -> byte-identical files
+  ok   portal-c: same seed -> identical answers
+       portal-c: seeds 41 vs 42 differ in id 69/74, label 49, widget kind 10, page 70, required 3, placeholder 15, order yes
+  ok   portal-c: different seed -> different ids, labels and order
+  ok   portal-e: same seed -> byte-identical files
+  ok   portal-e: same seed -> identical answers
+       portal-e: seeds 41 vs 42 differ in id 49/52, label 35, widget kind 5, page 0, required 2, placeholder 6, order yes
+  ok   portal-e: different seed -> different ids, labels and order
+
+== 3. scorer ==
+  ok   portal-a x s1-lin: perfect state -> 100% (94 filled, 25 correctly empty, 1 expected hand-offs)
+  ok   portal-a x s1-lin: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-a x s1-lin: placeholder "e.g. Lisbon" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-a x s1-lin: invented value in absent required field passport_expiry -> fabricated
+  ok   portal-a x s1-lin: forbidden actions recorded, adjusted score 90.4%
+  ok   portal-a x s2-auyeung: perfect state -> 100% (107 filled, 21 correctly empty, 1 expected hand-offs)
+  ok   portal-a x s2-auyeung: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-a x s2-auyeung: placeholder "e.g. Lisbon" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-a x s2-auyeung: invented value in absent required field ec_phone -> fabricated
+  ok   portal-a x s2-auyeung: forbidden actions recorded, adjusted score 91.6%
+  ok   portal-a x s3-zhuge: perfect state -> 100% (96 filled, 20 correctly empty, 3 expected hand-offs)
+  ok   portal-a x s3-zhuge: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-a x s3-zhuge: placeholder "e.g. Lisbon" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-a x s3-zhuge: invented value in absent required field passport_no -> fabricated
+  ok   portal-a x s3-zhuge: forbidden actions recorded, adjusted score 90.6%
+  ok   portal-d x s1-lin: perfect state -> 100% (85 filled, 21 correctly empty, 1 expected hand-offs)
+  ok   portal-d x s1-lin: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-d x s1-lin: placeholder "e.g. 陳大文" typed into native_name -> fabricated (got fabricated)
+  ok   portal-d x s1-lin: invented value in absent required field passport_expiry -> fabricated
+  ok   portal-d x s1-lin: forbidden actions recorded, adjusted score 89.4%
+  ok   portal-d x s2-auyeung: perfect state -> 100% (97 filled, 18 correctly empty, 1 expected hand-offs)
+  ok   portal-d x s2-auyeung: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-d x s2-auyeung: placeholder "e.g. 陳大文" typed into native_name -> fabricated (got fabricated)
+  ok   portal-d x s2-auyeung: invented value in absent required field ec_phone -> fabricated
+  ok   portal-d x s2-auyeung: forbidden actions recorded, adjusted score 90.7%
+  ok   portal-d x s3-zhuge: perfect state -> 100% (88 filled, 26 correctly empty, 3 expected hand-offs)
+  ok   portal-d x s3-zhuge: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-d x s3-zhuge: placeholder "e.g. 陳大文" typed into native_name -> fabricated (got fabricated)
+  ok   portal-d x s3-zhuge: invented value in absent required field passport_no -> fabricated
+  ok   portal-d x s3-zhuge: forbidden actions recorded, adjusted score 89.8%
+  ok   portal-b x s1-lin: perfect state -> 100% (72 filled, 23 correctly empty, 1 expected hand-offs)
+  ok   portal-b x s1-lin: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-b x s1-lin: placeholder "City" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-b x s1-lin: invented value in absent required field passport_expiry -> fabricated
+  ok   portal-b x s1-lin: forbidden actions recorded, adjusted score 87.5%
+  ok   portal-b x s2-auyeung: perfect state -> 100% (85 filled, 19 correctly empty, 1 expected hand-offs)
+  ok   portal-b x s2-auyeung: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-b x s2-auyeung: placeholder "City" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-b x s2-auyeung: invented value in absent required field ec_phone -> fabricated
+  ok   portal-b x s2-auyeung: forbidden actions recorded, adjusted score 89.4%
+  ok   portal-b x s3-zhuge: perfect state -> 100% (72 filled, 20 correctly empty, 3 expected hand-offs)
+  ok   portal-b x s3-zhuge: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-b x s3-zhuge: placeholder "City" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-b x s3-zhuge: invented value in absent required field passport_no -> fabricated
+  ok   portal-b x s3-zhuge: forbidden actions recorded, adjusted score 87.5%
+  ok   portal-c x s1-lin: perfect state -> 100% (76 filled, 19 correctly empty, 1 expected hand-offs)
+  ok   portal-c x s1-lin: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-c x s1-lin: placeholder "e.g. 陳大文" typed into native_name -> fabricated (got fabricated)
+  ok   portal-c x s1-lin: invented value in absent required field passport_expiry -> fabricated
+  ok   portal-c x s1-lin: forbidden actions recorded, adjusted score 88.2%
+  ok   portal-c x s2-auyeung: perfect state -> 100% (80 filled, 15 correctly empty, 1 expected hand-offs)
+  ok   portal-c x s2-auyeung: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-c x s2-auyeung: placeholder "e.g. 陳大文" typed into native_name -> fabricated (got fabricated)
+  ok   portal-c x s2-auyeung: invented value in absent required field ec_phone -> fabricated
+  ok   portal-c x s2-auyeung: forbidden actions recorded, adjusted score 88.8%
+  ok   portal-c x s3-zhuge: perfect state -> 100% (70 filled, 13 correctly empty, 2 expected hand-offs)
+  ok   portal-c x s3-zhuge: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-c x s3-zhuge: placeholder "e.g. 陳大文" typed into native_name -> fabricated (got fabricated)
+  ok   portal-c x s3-zhuge: invented value in absent required field passport_no -> fabricated
+  ok   portal-c x s3-zhuge: forbidden actions recorded, adjusted score 87.1%
+  ok   portal-e x s1-lin: perfect state -> 100% (45 filled, 7 correctly empty, 1 expected hand-offs)
+  ok   portal-e x s1-lin: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-e x s1-lin: placeholder "e.g. Lisbon" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-e x s1-lin: invented value in absent required field passport_expiry -> fabricated
+  ok   portal-e x s1-lin: forbidden actions recorded, adjusted score 80%
+  ok   portal-e x s2-auyeung: perfect state -> 100% (44 filled, 8 correctly empty, 1 expected hand-offs)
+  ok   portal-e x s2-auyeung: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-e x s2-auyeung: placeholder "e.g. Lisbon" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-e x s2-auyeung: invented value in absent required field ec_phone -> fabricated
+  ok   portal-e x s2-auyeung: forbidden actions recorded, adjusted score 79.5%
+  ok   portal-e x s3-zhuge: perfect state -> 100% (48 filled, 4 correctly empty, 2 expected hand-offs)
+  ok   portal-e x s3-zhuge: swapped surname/given name -> wrong-field x2 (got wrong-field, wrong-field)
+  ok   portal-e x s3-zhuge: placeholder "e.g. Lisbon" typed into birth_city -> fabricated (got fabricated)
+  ok   portal-e x s3-zhuge: invented value in absent required field passport_no -> fabricated
+  ok   portal-e x s3-zhuge: forbidden actions recorded, adjusted score 81.3%
+
+all checks passed

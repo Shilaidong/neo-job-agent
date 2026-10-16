@@ -1,0 +1,1382 @@
+{
+  "instance": "portal-c@canon",
+  "site": "portal-c",
+  "seed": "canon",
+  "student": "s2-auyeung",
+  "pages": [
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "review"
+  ],
+  "fields": [
+    {
+      "key": "languages",
+      "id": "f_9046",
+      "label": "Languages you speak",
+      "page": "p1",
+      "type": "multi",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "chips",
+      "acceptSet": [
+        "Cantonese",
+        "English",
+        "Mandarin Chinese"
+      ]
+    },
+    {
+      "key": "birth_place",
+      "id": "countryOfBirth",
+      "label": "Place of birth",
+      "page": "p1",
+      "type": "cascade",
+      "required": true,
+      "idStyle": "good",
+      "kind": "cascade",
+      "cascade": {
+        "country": [
+          "China (People's Republic of)"
+        ],
+        "state": [
+          "Guangdong"
+        ],
+        "city": [
+          "Shenzhen"
+        ]
+      }
+    },
+    {
+      "key": "photo",
+      "id": "ctl00_9307",
+      "label": "Applicant photo",
+      "page": "p1",
+      "type": "photo",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "photo",
+      "names": [
+        "歐陽子正_護照相片_藍底_二零二六年九月拍攝_申請用.jpg",
+        "auyeung_id.jpg"
+      ],
+      "sizes": [
+        13799,
+        14088
+      ]
+    },
+    {
+      "key": "family_name",
+      "id": "f_9476",
+      "label": "Surname / Family name (as in passport)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. SMITH",
+      "accept": [
+        "Au-Yeung",
+        "Au Yeung",
+        "AuYeung"
+      ]
+    },
+    {
+      "key": "given_name",
+      "id": "givenName",
+      "label": "Forename(s)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "As shown on passport",
+      "accept": [
+        "Tsz Ching",
+        "Tsz-Ching"
+      ]
+    },
+    {
+      "key": "native_name",
+      "id": "in_4174",
+      "label": "Name in original language",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 陳大文",
+      "accept": [
+        "歐陽子正",
+        "欧阳子正"
+      ]
+    },
+    {
+      "key": "gender",
+      "id": "x8408",
+      "label": "Gender",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "dradio",
+      "accept": [
+        "Male"
+      ]
+    },
+    {
+      "key": "preferred_name",
+      "id": "nickname",
+      "label": "Preferred first name",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "Jason"
+      ]
+    },
+    {
+      "key": "nationality",
+      "id": "c2753",
+      "label": "Country / region of nationality",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "vselect",
+      "accept": [
+        "Hong Kong SAR, China"
+      ]
+    },
+    {
+      "key": "dob",
+      "id": "c3336",
+      "label": "Date of birth",
+      "page": "p1",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-cal",
+      "iso": "2002-02-04"
+    },
+    {
+      "key": "passport_no",
+      "id": "c4416",
+      "label": "Travel document number",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. X1234567",
+      "accept": [
+        "KJ0461837"
+      ]
+    },
+    {
+      "key": "passport_country",
+      "id": "f_1282",
+      "label": "Passport issuing country",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "vselect",
+      "accept": [
+        "Hong Kong SAR, China"
+      ]
+    },
+    {
+      "key": "passport_expiry",
+      "id": "x8329",
+      "label": "Passport valid until",
+      "page": "p1",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-cal",
+      "iso": "2031-03-09"
+    },
+    {
+      "key": "title",
+      "id": "x2130",
+      "label": "Title",
+      "page": "p1",
+      "type": "select",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "dradio",
+      "accept": [
+        "Mr."
+      ]
+    },
+    {
+      "key": "addr_line1",
+      "id": "x1629",
+      "label": "House number and street",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "addr-auto",
+      "accept": [
+        "Flat C, 18/F, Block 3, Lung Poon Court",
+        "Flat C, 18/F, Block 3, Lung Poon Court, 8 Lung Poon Street",
+        "Flat C, 18/F, Block 3"
+      ],
+      "compositeWith": "address2",
+      "compositeAccept": [
+        "Flat C, 18/F, Block 3, Lung Poon Court, 8 Lung Poon Street, Diamond Hill"
+      ]
+    },
+    {
+      "key": "addr_line2",
+      "id": "address2",
+      "label": "Apartment, suite, district",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "optional",
+      "accept": [
+        "8 Lung Poon Street, Diamond Hill",
+        "Lung Poon Court, 8 Lung Poon Street, Diamond Hill",
+        "Diamond Hill",
+        "8 Lung Poon Street"
+      ],
+      "compositeWith": "x1629",
+      "compositeAccept": [
+        "Flat C, 18/F, Block 3, Lung Poon Court, 8 Lung Poon Street, Diamond Hill"
+      ]
+    },
+    {
+      "key": "addr_city",
+      "id": "in_4164",
+      "label": "City / District",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. Springfield",
+      "accept": [
+        "Kowloon",
+        "Hong Kong",
+        "Diamond Hill",
+        "Diamond Hill, Kowloon",
+        "Kowloon, Hong Kong"
+      ]
+    },
+    {
+      "key": "addr_state",
+      "id": "x1169",
+      "label": "Region",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "if applicable",
+      "empty": true
+    },
+    {
+      "key": "addr_postal",
+      "id": "x8847",
+      "label": "Postcode",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true
+    },
+    {
+      "key": "addr_country",
+      "id": "fld1790",
+      "label": "Country",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "Hong Kong SAR, China"
+      ]
+    },
+    {
+      "key": "email",
+      "id": "c2904",
+      "label": "Primary email",
+      "page": "p2",
+      "type": "email",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "email",
+      "placeholder": "you@domain.com",
+      "accept": [
+        "tc.auyeung@postbox.example"
+      ]
+    },
+    {
+      "key": "phone",
+      "id": "q4030",
+      "label": "Contact number",
+      "page": "p2",
+      "type": "phone",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "phone-cc",
+      "placeholder": "e.g. +1 201 555 0123",
+      "phone": {
+        "cc": "852",
+        "nat": "64132087",
+        "intl": true
+      }
+    },
+    {
+      "key": "alt_phone",
+      "id": "in_6175",
+      "label": "Home / daytime phone",
+      "page": "p2",
+      "type": "phone",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "phone-cc",
+      "phone": {
+        "cc": "44",
+        "nat": "7700900452",
+        "intl": true
+      }
+    },
+    {
+      "key": "mail_same",
+      "id": "mailSame",
+      "label": "Use my home address for correspondence",
+      "page": "p2",
+      "type": "bool",
+      "required": false,
+      "idStyle": "good",
+      "kind": "dcheck",
+      "bool": false
+    },
+    {
+      "key": "mail_line1",
+      "id": "fld5881",
+      "label": "Correspondence address (line 1)",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Flat 12B, Weston Hall",
+        "Flat 12B, Weston Hall, 25 Sackville Street",
+        "Flat 12B"
+      ],
+      "compositeWith": "ctl00_5217",
+      "compositeAccept": [
+        "Flat 12B, Weston Hall, 25 Sackville Street"
+      ]
+    },
+    {
+      "key": "mail_line2",
+      "id": "ctl00_5217",
+      "label": "Correspondence address (line 2)",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "25 Sackville Street",
+        "Weston Hall, 25 Sackville Street",
+        ""
+      ],
+      "compositeWith": "fld5881",
+      "compositeAccept": [
+        "Flat 12B, Weston Hall, 25 Sackville Street"
+      ]
+    },
+    {
+      "key": "mail_city",
+      "id": "q6577",
+      "label": "City",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Manchester"
+      ]
+    },
+    {
+      "key": "mail_state",
+      "id": "x2452",
+      "label": "Region",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true
+    },
+    {
+      "key": "mail_postal",
+      "id": "x3460",
+      "label": "ZIP / Postcode",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "M1 3WE",
+        "M13WE"
+      ]
+    },
+    {
+      "key": "mail_country",
+      "id": "corrCountry",
+      "label": "Mailing country",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "sselect",
+      "accept": [
+        "United Kingdom"
+      ]
+    },
+    {
+      "key": "ec_relation",
+      "id": "f_3780",
+      "label": "Relationship to applicant",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "dradio",
+      "accept": [
+        "Father"
+      ]
+    },
+    {
+      "key": "ec_phone",
+      "id": "fld2620",
+      "label": "Contact person's phone",
+      "page": "p2",
+      "type": "phone",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "phone-cc",
+      "placeholder": "incl. country code",
+      "empty": true,
+      "handoff": true
+    },
+    {
+      "key": "ec_name",
+      "id": "f_3708",
+      "label": "Emergency contact name",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Au-Yeung Kwok Wai",
+        "Kwok Wai Au-Yeung",
+        "AU-YEUNG Kwok Wai",
+        "Au-Yeung, Kwok Wai",
+        "Au Yeung Kwok Wai",
+        "Kwok Wai Au Yeung"
+      ]
+    },
+    {
+      "key": "ec_email",
+      "id": "q2520",
+      "label": "Contact person's email",
+      "page": "p2",
+      "type": "email",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "email",
+      "placeholder": "optional",
+      "accept": [
+        "kw.auyeung@postbox.example"
+      ]
+    },
+    {
+      "key": "gre_taken",
+      "id": "f_1809",
+      "label": "Have you taken the GRE?",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "dradio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "gre_date",
+      "id": "ctl00_5190",
+      "label": "Date of GRE",
+      "page": "p3",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-cal",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_v",
+      "id": "f_6823",
+      "label": "Verbal",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "130-170",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_q",
+      "id": "c2634",
+      "label": "GRE Quantitative Reasoning",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "130-170",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_aw",
+      "id": "fld3091",
+      "label": "GRE Analytical Writing",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "0.0-6.0",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "eng_test_type",
+      "id": "fld4360",
+      "label": "English proficiency test taken",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "IELTS (Academic)"
+      ]
+    },
+    {
+      "key": "eng_test_date",
+      "id": "testDate",
+      "label": "Test date",
+      "page": "p3",
+      "type": "date",
+      "required": true,
+      "idStyle": "good",
+      "kind": "date-cal",
+      "iso": "2025-11-22"
+    },
+    {
+      "key": "eng_overall",
+      "id": "overall",
+      "label": "Total score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. 90",
+      "accept": [
+        "7.5",
+        "7.50"
+      ]
+    },
+    {
+      "key": "eng_l",
+      "id": "x6309",
+      "label": "Listening score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "8.5",
+        "8.50"
+      ]
+    },
+    {
+      "key": "eng_r",
+      "id": "reading",
+      "label": "Reading",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "8.0",
+        "8",
+        "8.00"
+      ]
+    },
+    {
+      "key": "eng_w",
+      "id": "speaking",
+      "label": "Writing score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "text",
+      "accept": [
+        "6.5",
+        "6.50"
+      ]
+    },
+    {
+      "key": "eng_s",
+      "id": "f_8647",
+      "label": "Speaking score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "7.0",
+        "7",
+        "7.00"
+      ]
+    },
+    {
+      "key": "eng_ref",
+      "id": "q9806",
+      "label": "TRF number / Registration ID",
+      "page": "p3",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "25HK004618AUYT001A"
+      ]
+    },
+    {
+      "key": "mode",
+      "id": "in_9610",
+      "label": "Attendance",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "dradio",
+      "accept": [
+        "Part time"
+      ]
+    },
+    {
+      "key": "scholarship",
+      "id": "c7241",
+      "label": "Apply for scholarship?",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "dradio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "conviction",
+      "id": "conviction",
+      "label": "Do you have any unspent criminal convictions?",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "dradio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "funding",
+      "id": "in_2985",
+      "label": "Main source of finance",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "Self-funded"
+      ]
+    },
+    {
+      "key": "prefs",
+      "id": "ctl00_5781",
+      "label": "Order of preference",
+      "page": "p4",
+      "type": "order",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "order",
+      "seq": [
+        "MSc Statistics",
+        "MSc Data Science and Analytics",
+        "MSc Business Analytics"
+      ]
+    },
+    {
+      "key": "intake",
+      "id": "ctl00_7194",
+      "label": "Intake",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "dradio",
+      "accept": [
+        "September 2027"
+      ]
+    },
+    {
+      "key": "prog",
+      "id": "programCode",
+      "label": "Programme",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "tree",
+      "accept": [
+        "MSc Statistics"
+      ]
+    },
+    {
+      "key": "essay",
+      "id": "sop",
+      "label": "Personal statement",
+      "page": "p5",
+      "type": "essay",
+      "required": true,
+      "idStyle": "good",
+      "kind": "rte",
+      "text": "Two years of forecasting retail demand have shown me both the power and the limits of the statistics I learned at Manchester. My models work - one hierarchical time-series model cut our forecast error by 11% - but when a client asks \"how sure are you?\" I often cannot give an honest answer. I want to return to study to close that gap. My undergraduate project on shrinkage estimators, supervised by Professor Whitcombe, and the LSE summer course in machine learning gave me the foundations; daily work with messy, sparse sales data gave me the motivation. I am particularly interested in Bayesian hierarchical models and in uncertainty quantification for decisions made under time pressure. After the programme I intend to return to industry in Hong Kong, and to build forecasting tools whose stated confidence can actually be trusted."
+    }
+  ],
+  "lists": [
+    {
+      "key": "education",
+      "id": "c3267",
+      "label": "Education history",
+      "page": "p3",
+      "required": true,
+      "rows": [
+        [
+          {
+            "key": "institution",
+            "id": "c6958",
+            "label": "Name of university / college",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "lookup2",
+            "accept": [
+              "The University of Manchester",
+              "University of Manchester"
+            ]
+          },
+          {
+            "key": "inst_country",
+            "id": "x7789",
+            "label": "Country of institution",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "accept": [
+              "United Kingdom"
+            ]
+          },
+          {
+            "key": "inst_city",
+            "id": "q5962",
+            "label": "Institution city",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Manchester"
+            ]
+          },
+          {
+            "key": "degree_title",
+            "id": "fld7365",
+            "label": "Degree / qualification title",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. Bachelor of Arts",
+            "accept": [
+              "BSc (Hons)",
+              "BSc",
+              "BSc (Hons) Mathematics and Statistics",
+              "Bachelor of Science",
+              "Bachelor of Science (Honours)",
+              "BSc Hons"
+            ]
+          },
+          {
+            "key": "in_progress",
+            "id": "f_3332",
+            "label": "I am currently studying here",
+            "page": "p3",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "dcheck",
+            "bool": false
+          },
+          {
+            "key": "level",
+            "id": "qualLevel",
+            "label": "Level of study",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "vselect",
+            "accept": [
+              "Bachelor"
+            ]
+          },
+          {
+            "key": "start",
+            "id": "eduFrom",
+            "label": "Date from",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "good",
+            "kind": "month-2sel",
+            "iso": "2021-09"
+          },
+          {
+            "key": "end",
+            "id": "q9545",
+            "label": "End date (or expected)",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2024-07"
+          },
+          {
+            "key": "gpa",
+            "id": "gpa",
+            "label": "Cumulative GPA",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "good",
+            "kind": "text",
+            "placeholder": "e.g. 3.45",
+            "accept": [
+              "76",
+              "76%",
+              "76.0"
+            ]
+          },
+          {
+            "key": "gpa_scale",
+            "id": "in_3505",
+            "label": "GPA scale",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "accept": [
+              "Percentage (out of 100)"
+            ]
+          },
+          {
+            "key": "instr_lang",
+            "id": "q9536",
+            "label": "Teaching language",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "vselect",
+            "accept": [
+              "English"
+            ]
+          },
+          {
+            "key": "major",
+            "id": "in_6145",
+            "label": "Subject",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. History",
+            "accept": [
+              "Mathematics and Statistics",
+              "Mathematics & Statistics"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "institution",
+            "id": "c6958",
+            "label": "Name of university / college",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "lookup2",
+            "accept": [
+              "London School of Economics and Political Science",
+              "LSE",
+              "The London School of Economics and Political Science"
+            ]
+          },
+          {
+            "key": "inst_country",
+            "id": "x7789",
+            "label": "Country of institution",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "accept": [
+              "United Kingdom"
+            ]
+          },
+          {
+            "key": "inst_city",
+            "id": "q5962",
+            "label": "Institution city",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "London"
+            ]
+          },
+          {
+            "key": "degree_title",
+            "id": "fld7365",
+            "label": "Degree / qualification title",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. Bachelor of Arts",
+            "accept": [
+              "Summer School",
+              "LSE Summer School",
+              "Summer School Certificate",
+              "Non-degree",
+              "N/A",
+              ""
+            ]
+          },
+          {
+            "key": "in_progress",
+            "id": "f_3332",
+            "label": "I am currently studying here",
+            "page": "p3",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "dcheck",
+            "bool": false
+          },
+          {
+            "key": "level",
+            "id": "qualLevel",
+            "label": "Level of study",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "vselect",
+            "accept": [
+              "Short course / Summer school / Exchange (no award)"
+            ]
+          },
+          {
+            "key": "start",
+            "id": "eduFrom",
+            "label": "Date from",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "good",
+            "kind": "month-2sel",
+            "iso": "2023-07"
+          },
+          {
+            "key": "end",
+            "id": "q9545",
+            "label": "End date (or expected)",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2023-08"
+          },
+          {
+            "key": "gpa",
+            "id": "gpa",
+            "label": "Cumulative GPA",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "good",
+            "kind": "text",
+            "placeholder": "e.g. 3.45",
+            "empty": true
+          },
+          {
+            "key": "gpa_scale",
+            "id": "in_3505",
+            "label": "GPA scale",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "empty": true
+          },
+          {
+            "key": "instr_lang",
+            "id": "q9536",
+            "label": "Teaching language",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "vselect",
+            "accept": [
+              "English"
+            ]
+          },
+          {
+            "key": "major",
+            "id": "in_6145",
+            "label": "Subject",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. History",
+            "accept": [
+              "Machine Learning in Practice",
+              "ME317 Machine Learning in Practice",
+              "Machine Learning"
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "key": "recommenders",
+      "id": "q8957",
+      "label": "Recommenders",
+      "page": "p5",
+      "required": true,
+      "rows": [
+        [
+          {
+            "key": "r_title",
+            "id": "c1944",
+            "label": "Title",
+            "page": "p5",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "accept": [
+              "Prof."
+            ]
+          },
+          {
+            "key": "r_phone",
+            "id": "q3818",
+            "label": "Phone number",
+            "page": "p5",
+            "type": "phone",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "phone-cc",
+            "placeholder": "incl. country code",
+            "phone": {
+              "cc": "44",
+              "nat": "1614960731",
+              "intl": true
+            }
+          },
+          {
+            "key": "r_org",
+            "id": "ctl00_8935",
+            "label": "Place of work",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "The University of Manchester",
+              "University of Manchester"
+            ]
+          },
+          {
+            "key": "r_relation",
+            "id": "recType",
+            "label": "Referee type",
+            "page": "p5",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "Academic (teacher / supervisor)"
+            ]
+          },
+          {
+            "key": "r_position",
+            "id": "c4114",
+            "label": "Role",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Professor of Statistics, Department of Mathematics",
+              "Professor of Statistics",
+              "Professor"
+            ]
+          },
+          {
+            "key": "r_email",
+            "id": "refEmail",
+            "label": "Recommender's e-mail (institutional preferred)",
+            "page": "p5",
+            "type": "email",
+            "required": true,
+            "idStyle": "good",
+            "kind": "email",
+            "placeholder": "name@university.edu",
+            "accept": [
+              "eleanor.whitcombe@maths-manchester.example"
+            ]
+          },
+          {
+            "key": "r_family",
+            "id": "f_7033",
+            "label": "Recommender last name",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Whitcombe"
+            ]
+          },
+          {
+            "key": "r_given",
+            "id": "refLastName",
+            "label": "First name",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "bad",
+            "kind": "text",
+            "accept": [
+              "Eleanor"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "r_title",
+            "id": "c1944",
+            "label": "Title",
+            "page": "p5",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "accept": [
+              "Mr."
+            ]
+          },
+          {
+            "key": "r_phone",
+            "id": "q3818",
+            "label": "Phone number",
+            "page": "p5",
+            "type": "phone",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "phone-cc",
+            "placeholder": "incl. country code",
+            "phone": {
+              "cc": "852",
+              "nat": "35550164",
+              "intl": true
+            }
+          },
+          {
+            "key": "r_org",
+            "id": "ctl00_8935",
+            "label": "Place of work",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Harbour Analytics Limited",
+              "Harbour Analytics Ltd",
+              "Harbour Analytics"
+            ]
+          },
+          {
+            "key": "r_relation",
+            "id": "recType",
+            "label": "Referee type",
+            "page": "p5",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "Professional"
+            ]
+          },
+          {
+            "key": "r_position",
+            "id": "c4114",
+            "label": "Role",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Head of Analytics"
+            ]
+          },
+          {
+            "key": "r_email",
+            "id": "refEmail",
+            "label": "Recommender's e-mail (institutional preferred)",
+            "page": "p5",
+            "type": "email",
+            "required": true,
+            "idStyle": "good",
+            "kind": "email",
+            "placeholder": "name@university.edu",
+            "accept": [
+              "chiho.lau@harbour-analytics.example"
+            ]
+          },
+          {
+            "key": "r_family",
+            "id": "f_7033",
+            "label": "Recommender last name",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Lau"
+            ]
+          },
+          {
+            "key": "r_given",
+            "id": "refLastName",
+            "label": "First name",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "bad",
+            "kind": "text",
+            "accept": [
+              "Chi Ho",
+              "Chi-Ho"
+            ]
+          }
+        ]
+      ]
+    }
+  ],
+  "forbidden": [
+    "submit",
+    "pay",
+    "invite",
+    "consent",
+    "signature"
+  ],
+  "handoffs": [
+    "ec_phone"
+  ],
+  "misleadingIds": [
+    {
+      "id": "speaking",
+      "key": "eng_w"
+    },
+    {
+      "id": "refLastName",
+      "key": "recommenders.r_given"
+    }
+  ]
+}

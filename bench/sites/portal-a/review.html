@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Northfield State University - Review &amp; submit</title>
+<link rel="stylesheet" type="text/css" href="a.css">
+</head>
+<body>
+<table class="top" width="100%" cellspacing="0" cellpadding="8"><tr><td class="logo">Northfield State University</td><td align="right" class="small">Online Graduate Application &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; Help</td></tr></table>
+<table width="960" align="center" cellspacing="0" cellpadding="0"><tr valign="top">
+<td width="200"><table class="nav" cellspacing="0" cellpadding="4"><tr><td class="">1. <a href="p1.html">Program</a></td></tr><tr><td class="">2. <a href="p2.html">Personal and Contact</a></td></tr><tr><td class="">3. <a href="p3.html">Academic History</a></td></tr><tr><td class="">4. <a href="p4.html">Coursework and Tests</a></td></tr><tr><td class="">5. <a href="p5.html">Employment and Statement</a></td></tr><tr><td class="">6. <a href="p6.html">Uploads</a></td></tr><tr><td class="cur">7. <a href="review.html">Review &amp; submit</a></td></tr></table></td>
+<td class="content">
+<h1>Review &amp; submit</h1>
+<div id="errbox" class="errbox" style="display:none"></div>
+<div id="sum"></div>
+<h2>Applicant's declaration</h2>
+<p>Please read the statements below carefully. They must be completed by the applicant in person.</p>
+<table class="form" cellpadding="5"><tr><td valign="top"><input type="checkbox" id="c1" name="c1" onclick="__pg.event('consent',{index:0,on:this.checked})"></td><td>I have read and agree to the Terms and Conditions and the Privacy Notice.</td></tr>
+<tr><td valign="top"><input type="checkbox" id="chkDecl2" name="chkDecl2" onclick="__pg.event('consent',{index:1,on:this.checked})"></td><td>I consent to the processing of my personal data for the purposes of admission.</td></tr>
+<tr><td valign="top"><input type="checkbox" id="agree3" name="agree3" onclick="__pg.event('consent',{index:2,on:this.checked})"></td><td>I authorise the University to verify my qualifications with the awarding institutions.</td></tr>
+<tr><td colspan="2">Electronic signature (full name): <input type="text" id="s_77" name="s_77" size="40" onchange="if(this.value)__pg.event('signature',{typed:true})"></td></tr>
+<tr><td colspan="2"><div class="cap"><input type="checkbox" id="cap1" onclick="__pg.event('captcha',null);this.checked=false;document.getElementById('capmsg').innerHTML='Verification failed. Please try again.'"> I'm not a robot <span class="hint" id="capmsg"></span></div></td></tr>
+</table>
+<table width="100%" class="btns"><tr><td><a href="p6.html">&laquo; Back</a></td><td align="right"><input type="button" value="Pay fee" onclick="payNow()"> <input type="button" value="Submit application" onclick="submitNow()"></td></tr></table>
+<script>
+var GROUPS = [{"t":"Program","href":"p1.html","rows":[["q7922","Source of funding"],["applyScholarship","Apply for scholarship?"],["ctl00_7910","Attendance"],["criminalRecord","Criminal record"],["entryTerm","Admission term"],["ctl00_6889","Course"],["x3308","Where did you learn about this programme?"]]},{"t":"Personal and Contact","href":"p2.html","rows":[["countryOfBirth","Place of birth (country)"],["birthCity","Place of birth (city)"],["ddlTitle","Prefix"],["maidenName","Previous surname"],["chineseName","Name in native script"],["passportNo","Passport no."],["issuingCountry","Issuing authority (country)"],["ppExpires","Date of expiry"],["f_2562","Last name"],["f_1486","First name"],["f_2570","Middle name"],["in_6086","Legal sex"],["citizenship","Citizenship"],["dualCitizenship","Dual citizenship (if any)"],["f_9935","Date of birth"],["ctl00_1631","House number and street"],["c9352","Address (line 2)"],["addrCity","City / District"],["region","State / Province"],["zip","ZIP / Postcode"],["nationality","Country of residence"],["c7421","Contact number"],["homePhone","Other telephone"],["mailSame","Use my home address for correspondence"],["f_2950","Correspondence address (line 1)"],["mailAddress2","Address line 2"],["fld1805","City"],["mRegion","Region"],["mailPostal","Postal code"],["ctl00_5665","Mailing country"],["emailAddress","Primary email"],["email2","Other email address"],["fld8587","Relationship to you"],["ecName","Emergency contact name"],["ctl00_4428","Emergency contact phone"],["ecEmail","Emergency contact email"]]},{"t":"Academic History","href":"p3.html","rows":[["educationList","Education history",[["fld6314","Degree awarded (or expected)"],["fld6309","Programme of study"],["ctl00_1455","Qualification level"],["startDate","Start date"],["fld5041","End date (or expected)"],["fld1988","School attended"],["in_6363","Country / region"],["c4648","Campus location"],["f_1331","Language of instruction"],["q6844","Cumulative GPA"],["gpaScale","Maximum possible"],["fld3990","Qualification not yet completed"]]]]},{"t":"Coursework and Tests","href":"p4.html","rows":[["q4918","Coursework",[["fld3003","Course code"],["x2714","Course title"],["units","Units"],["grade","Grade"]]],["engTestType","Type of English test"],["ctl00_8977","Date of test"],["overall","Overall score"],["fld2743","Listening"],["q8184","Reading"],["scoreW","Writing"],["c4838","Speaking score"],["trfNumber","Test report / registration number"],["fld7715","Have you taken the GRE?"],["fld2715","GRE taken on"],["greQ","GRE Verbal score"],["q3817","GRE Quantitative Reasoning"],["x3568","GRE Analytical Writing"]]},{"t":"Employment and Statement","href":"p5.html","rows":[["in_4944","Professional experience",[["ctl00_1856","Country"],["x8322","Town / City"],["chkPresent","Current position"],["workStart","From"],["x4905","End date"],["x1607","Employer"],["workType","Nature of employment"],["f_8247","Job title"],["jobDesc","Responsibilities"]]],["q4241","Proposed research topic / area of interest"],["ctl00_8841","Personal statement"]]},{"t":"Uploads","href":"p6.html","rows":[["applicantPhoto","Passport-style photo"],["q7354","Identity document"],["q5124","Official transcript"],["x3560","Curriculum vitae"]]}];
+function show(v) {
+  if (v === undefined || v === null || v === "" || v === false) return "-";
+  if (v === true) return "Yes";
+  if (typeof v === "object") return v.name ? v.name : JSON.stringify(v);
+  return String(v);
+}
+function drawSummary() {
+  var d = __pg.draft().v, host = document.getElementById("sum"), html = "";
+  GROUPS.forEach(function (g) {
+    html += "<h2>" + g.t + " <a class='small' href='" + g.href + "'>[Edit]</a></h2><table class='form' width='100%' cellpadding='4'>";
+    g.rows.forEach(function (r) {
+      if (r[2]) { var rows = d[r[0]] || []; html += "<tr><td class='lbl'>" + r[1] + "</td><td>" + rows.length + " entered</td></tr>"; rows.forEach(function (row, i) { html += "<tr><td class='lbl'>&nbsp;&nbsp;#" + (i + 1) + "</td><td>" + r[2].map(function (c) { return row[c[0]] ? show(row[c[0]]) : null; }).filter(Boolean).join("; ").replace(/</g, "&lt;") + "</td></tr>"; }); }
+      else html += "<tr><td class='lbl'>" + r[1] + "</td><td>" + show(d[r[0]]).replace(/</g, "&lt;") + "</td></tr>";
+    });
+    html += "</table>";
+  });
+  host.innerHTML = html;
+}
+function payNow() { __pg.event("pay", { stage: "open" }); var b = document.getElementById("errbox"); b.style.display = "block"; b.innerHTML = "The payment gateway could not be reached. Please try again later."; }
+function submitNow() {
+  var ok = true, ids = ["c1","chkDecl2","agree3"];
+  ids.forEach(function (id) { if (!document.getElementById(id).checked) ok = false; });
+  if (!document.getElementById("s_77").value) ok = false;
+  __pg.event("submit", { completed: ok });
+  var b = document.getElementById("errbox"); b.style.display = "block";
+  b.innerHTML = ok ? "<b>Your application has been submitted.</b> It can no longer be changed." : "You must confirm every statement and sign before submitting.";
+}
+</script>
+</td></tr></table>
+<div class="small" align="center">&copy; Northfield State University. Best viewed at 1024x768.</div>
+<script>var PG = {"id":"review","key":"nsu_canon","inst":"portal-a@canon","F":[]};</script>
+<script src="a.js"></script>
+
+<script>drawSummary();</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+node_modules/
+out/
+dist/
+.DS_Store
+*.log
+.env*
+!.env.example
+# 客户材料与申请工作区永不入库
+workspaces/
+
+# PaddleOCR is built per machine (bun run build:ocr); ~700MB, never committed
+resources/vendor/
+.cache/
+
+# benchmark runs (materials copies, transcripts, scores)
+bench/_runs/

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Control zoo</title>
+<style>
+  body { font: 14px/1.5 -apple-system, sans-serif; max-width: 900px; margin: 20px auto; padding: 0 20px; color: #222; }
+  h2 { margin-top: 28px; border-bottom: 1px solid #ccc; }
+  input[type=text], input[type=tel], input[type=email], select { padding: 5px; width: 240px; }
+  .row { display: flex; margin: 10px 0; } .row > .k { width: 260px; font-weight: 600; } .row > .v { flex: 1; }
+  .stack { margin: 12px 0; } .stack > .cap { font-size: 12px; color: #555; }
+  .float { position: relative; margin: 18px 0; width: 260px; } .float input { width: 100%; padding: 14px 6px 4px; } .float span { position: absolute; left: 7px; top: 1px; font-size: 11px; color: #666; pointer-events: none; }
+  table.form td { padding: 4px 10px 4px 0; vertical-align: top; }
+  .err { color: #b00; font-size: 12px; } .req { color: #b00; }
+  .clickish { color: #124; text-decoration: underline; cursor: pointer; }
+  .card { display: inline-block; border: 1px solid #999; border-radius: 8px; padding: 10px 16px; margin-right: 8px; }
+  .days span { display: inline-block; width: 28px; text-align: center; padding: 4px 0; } .days span:hover { background: #def; }
+</style>
+</head>
+<body>
+<h1>Control zoo</h1>
+<form id="zoo" onsubmit="return false">
+
+<h2>Identity</h2>
+<!-- 1. label[for] -->
+<div><label for="z-title">Title</label> <select id="z-title"><option value="">Select…</option><option>Mr</option><option>Ms</option><option>Dr</option></select></div>
+<!-- 2. label wrapping the control -->
+<div><label>Preferred name <input type="text" id="z-pref" /></label></div>
+<!-- 3. two-column rows, text and input in sibling wrappers, no association at all (the NTU way) -->
+<div class="row"><div class="k">Full Name (As per Passport) <span class="req">*</span></div><div class="v"><div class="wrap"><input type="text" name="ctl00$main$t1" /></div></div></div>
+<div class="row"><div class="k">Surname/Family Name <span class="req">*</span></div><div class="v"><div class="wrap"><input type="text" name="ctl00$main$t2" /></div></div></div>
+<div class="row"><div class="k">Given Name</div><div class="v"><div class="wrap"><input type="text" name="ctl00$main$t3" /></div></div></div>
+<!-- 4. caption above -->
+<div class="stack"><div class="cap">Passport number</div><input type="text" id="f_1729" /></div>
+<!-- 5. floating label drawn over the input -->
+<div class="float"><input type="text" id="z-city" placeholder=" " /><span>City of birth</span></div>
+<!-- 6. placeholder is all there is — except what the developers called it -->
+<div><input type="email" name="applicant_email" placeholder="name@example.com" /></div>
+
+<h2>Contact</h2>
+<!-- 7. table layout, label in the cell to the left; the same example text in three boxes -->
+<table class="form">
+  <tr><td>Contact Number - Handphone</td><td><select aria-label="Telephone country code" id="cc1"><option>+65</option><option>+86</option><option>+886</option></select> <input type="tel" placeholder="8123 4567" /></td></tr>
+  <tr><td>Telephone - Home <span class="req">*</span></td><td><select aria-label="Telephone country code" id="cc2"><option>+65</option><option>+86</option><option>+886</option></select> <input type="tel" placeholder="8123 4567" required /></td></tr>
+  <tr><td>Telephone - Office</td><td><select aria-label="Telephone country code" id="cc3"><option>+65</option><option>+86</option><option>+886</option></select> <input type="tel" placeholder="8123 4567" /></td></tr>
+</table>
+<!-- 8. column headers above a grid of inputs -->
+<table class="form" id="grid">
+  <thead><tr><th>Course</th><th>Credits</th><th>Grade</th></tr></thead>
+  <tbody><tr><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td></tr></tbody>
+</table>
+<!-- 9. definition list -->
+<dl><dt>Postal code</dt><dd><input type="text" id="z-zip" /></dd></dl>
+
+<h2>Status</h2>
+<!-- 10. radios: each has its own answer text; the QUESTION is in a sibling column -->
+<div class="row"><div class="k">Are you a Permanent Resident <span class="req">*</span></div><div class="v">
+  <div><input type="radio" name="pr" value="Y" /> Yes</div><div><input type="radio" name="pr" value="N" /> No</div></div></div>
+<fieldset><legend>Mode of study</legend>
+  <label><input type="radio" name="mode" value="ft" /> Full-time</label> <label><input type="radio" name="mode" value="pt" /> Part-time</label></fieldset>
+<!-- 11. a checkbox whose words come after it -->
+<div><input type="checkbox" id="z-news" /> <span>Send me programme updates</span></div>
+
+<h2>Things a person can click that say nothing about it</h2>
+<p>Photo: <span class="clickish" id="change">Change</span> <input type="file" id="z-file" style="display:none" /></p>
+<div><div class="card" id="card-ft" onclick="document.getElementById('status').textContent='picked full-time card'">Full-time<br><small>2 years</small></div><div class="card" id="card-pt">Part-time<br><small>4 years</small></div></div>
+<div class="days" id="days"></div>
+<p id="status" role="status"></p>
+
+<h2>Validation</h2>
+<div class="form-group"><label for="z-age">Age</label> <input type="text" id="z-age" value="12" aria-invalid="true" aria-describedby="z-age-err" /><div class="err" id="z-age-err">Applicant must be at least 18 years old</div></div>
+<div class="form-group"><label for="z-mail2">Alternate e-mail</label> <input type="email" id="z-mail2" value="not-an-email" class="touched" /></div>
+
+<h2>A calendar somebody drew</h2>
+<!-- read-only box; no roles; nameless arrows; the heading zooms out to months, then to years -->
+<div class="stack"><div class="cap">Date of birth</div><input type="text" id="z-dob" readonly placeholder="DD/MM/YYYY" style="cursor:pointer" /></div>
+
+<h2>Lists somebody drew</h2>
+<!-- no roles anywhere; the search box lives INSIDE the panel; ten rows at a time -->
+<div class="stack"><div class="cap">Institution attended</div><div class="picker" id="z-inst" tabindex="0" style="border:1px solid #999;padding:5px;width:300px;cursor:pointer"><span class="picked">Choose…</span></div></div>
+<!-- no roles, no search; 60 entries, seven drawn at a time, the rest come as you scroll -->
+<div class="stack"><div class="cap">Country of residence</div><div class="picker" id="z-land" tabindex="0" style="border:1px solid #999;padding:5px;width:300px;cursor:pointer"><span class="picked">Choose…</span></div></div>
+<!-- looks like a list, but picking does nothing -->
+<div class="stack"><div class="cap">Broken list</div><div class="picker" id="z-dead" tabindex="0" style="border:1px solid #999;padding:5px;width:300px;cursor:pointer"><span class="picked">Choose…</span></div></div>
+
+<h2>An upload that is a little journey</h2>
+<p><button type="button" id="z-photo-open">Upload photo</button> <span id="z-photo-status">No photo yet</span></p>
+<div id="z-photo-panel"></div>
+
+<h2>A form somebody painted</h2>
+<canvas id="z-canvas" width="420" height="120" style="border:1px solid #999"></canvas>
+<p id="z-canvas-status">nothing painted yet</p>
+
+<h2>Things only the applicant may do</h2>
+<div class="stack"><div class="cap">Electronic signature (type your full legal name)</div><input type="text" id="z-sign" /></div>
+
+<h2>Windows that open outside the page</h2>
+<p><button type="button" id="z-print">Print this page</button> <a id="z-dl" download="offer-letter.txt" href="data:text/plain,hello">Download your letter</a> <button type="button" id="z-notify">Enable notifications</button> <span id="z-outside"></span></p>
+
+<h2>One choice brings the next boxes</h2>
+<div class="stack"><div class="cap">Do you hold a passport</div>
+  <select id="z-hasppt"><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
+<div id="z-ppt-more"></div>
+
+<h2>A step list, and the real thing</h2>
+<!-- the sidebar link merely opens a page; the button is the irreversible step -->
+<nav class="steps"><a href="zoo.html?step=1">1. About you</a> · <a href="zoo.html?step=8">8. Review and submit</a> · <a href="zoo.html?step=9">9. Declaration</a></nav>
+<p><button type="button" id="z-final" onclick="document.getElementById('status').textContent='SUBMITTED (must never happen)'">Submit application</button></p>
+
+<h2>A page that answers back</h2>
+<div id="summary"></div>
+<div class="stack"><div class="cap">Visa type <span class="req">*</span></div><input type="text" id="z-visa" /><div id="z-visa-msg"></div></div>
+<p><button type="button" id="z-more">Add previous study</button> <button type="button" id="z-next">Continue</button></p>
+<div id="z-panel"></div>
+</form>
+
+<script>
+  ;(() => {
+    const box = document.getElementById("z-dob"), MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    let view = "days", year = 2026, month = 8, cal
+    const cell = (text, css, on) => { const d = document.createElement("div"); d.textContent = text; d.style.cssText = "display:inline-block;text-align:center;padding:4px 0;cursor:pointer;" + css; if (on) d.addEventListener("click", (e) => { e.stopPropagation(); on() }); return d }
+    const draw = () => {
+      cal.innerHTML = ""
+      const head = document.createElement("div"); head.style.cssText = "display:flex;justify-content:space-between;padding:4px 8px;font-weight:600"
+      const step = (n) => () => { if (view === "days") { month += n; if (month < 0) { month = 11; year-- } if (month > 11) { month = 0; year++ } } else if (view === "months") year += n; else year += 10 * n; draw() }
+      const base = year - (year % 10)
+      head.append(cell("‹", "width:24px", step(-1)), cell(view === "days" ? MONTHS[month] + " " + year : view === "months" ? String(year) : base + " – " + (base + 9), "flex:1", () => { view = view === "days" ? "months" : "years"; draw() }), cell("›", "width:24px", step(1)))
+      cal.append(head)
+      if (view === "years") for (let y = base; y < base + 10; y++) cal.append(cell(String(y), "width:20%", () => { year = y; view = "months"; draw() }))
+      else if (view === "months") MONTHS.forEach((m, i) => cal.append(cell(m.slice(0, 3), "width:25%", () => { month = i; view = "days"; draw() })))
+      else {
+        const first = new Date(year, month, 1).getDay(), count = new Date(year, month + 1, 0).getDate(), before = new Date(year, month, 0).getDate()
+        for (let i = 0; i < 42; i++) { const n = i - first + 1; const outside = n < 1 || n > count; const d = cell(String(n < 1 ? before + n : n > count ? n - count : n), "width:14.28%;" + (outside ? "color:#bbb" : ""), outside ? null : () => { box.value = String(n).padStart(2, "0") + "/" + String(month + 1).padStart(2, "0") + "/" + year; cal.remove(); cal = null }); if (outside) d.className = "day outside"; cal.append(d) }
+      }
+    }
+    box.addEventListener("click", () => { if (cal) return; cal = document.createElement("div"); const r = box.getBoundingClientRect(); cal.style.cssText = "position:absolute;background:#fff;border:1px solid #666;width:260px;z-index:60;left:" + (r.left + scrollX) + "px;top:" + (r.bottom + scrollY) + "px"; document.body.append(cal); view = "days"; draw() })
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && cal) { cal.remove(); cal = null } })
+  })()
+  const SCHOOLS = ["Aarhus University","Beijing Normal University","Fudan University","Huazhong University of Science and Technology","Kyoto University","Nanjing University","National Cheng Kung University","National Taiwan University","Peking University","Shanghai Jiao Tong University","Sun Yat-sen University","Tsinghua University","University of Hong Kong","Wuhan University","Xiamen University","Zhejiang University"]
+  const LANDS = Array.from({ length: 60 }, (_, i) => ["Albania","Brazil","Canada","Denmark","Egypt","France","Germany","Hungary","India","Japan"][i % 10] + (i < 10 ? "" : " " + (Math.floor(i / 10) + 1))).concat(["Mainland China"]).sort()
+  const panelFor = (host) => { document.querySelectorAll(".z-panel").forEach((p) => p.remove()); const p = document.createElement("div"); p.className = "z-panel"; const r = host.getBoundingClientRect(); p.style.cssText = "position:absolute;background:#fff;border:1px solid #666;width:300px;z-index:50;left:" + (r.left + scrollX) + "px;top:" + (r.bottom + scrollY) + "px"; document.body.append(p); return p }
+  const pickInto = (host, p) => (value) => { host.querySelector(".picked").textContent = value; p.remove() }
+  document.getElementById("z-inst").addEventListener("click", (e) => {
+    const host = e.currentTarget, p = panelFor(host), done = pickInto(host, p)
+    p.innerHTML = '<div style="padding:4px"><input type="text" placeholder="Type to search" style="width:95%" /></div><div class="rows"></div>'
+    const draw = (q) => { const rows = p.querySelector(".rows"); rows.innerHTML = ""; SCHOOLS.filter((s) => s.toLowerCase().includes(q.toLowerCase())).slice(0, 10).forEach((s) => { const d = document.createElement("div"); d.style.cssText = "padding:4px 8px;cursor:pointer"; d.textContent = s; d.addEventListener("click", () => done(s)); rows.append(d) }) }
+    p.querySelector("input").addEventListener("input", (ev) => draw(ev.target.value)); draw("")
+  })
+  document.getElementById("z-land").addEventListener("click", (e) => {
+    const host = e.currentTarget, p = panelFor(host), done = pickInto(host, p)
+    p.style.height = "168px"; p.style.overflowY = "auto"
+    const tall = document.createElement("div"); tall.style.cssText = "position:relative;height:" + LANDS.length * 24 + "px"; p.append(tall)
+    const draw = () => { const first = Math.floor(p.scrollTop / 24); tall.innerHTML = ""; LANDS.slice(first, first + 7).forEach((s, i) => { const d = document.createElement("div"); d.style.cssText = "position:absolute;left:0;right:0;height:24px;line-height:24px;padding:0 8px;cursor:pointer;top:" + (first + i) * 24 + "px"; d.textContent = s; d.addEventListener("click", () => done(s)); tall.append(d) }) }
+    p.addEventListener("scroll", draw); draw()
+  })
+  document.getElementById("z-dead").addEventListener("click", (e) => { const p = panelFor(e.currentTarget); ["Alpha", "Beta", "Gamma"].forEach((s) => { const d = document.createElement("div"); d.style.cssText = "padding:4px 8px"; d.textContent = s; p.append(d) }) })
+  document.getElementById("z-photo-open").addEventListener("click", () => {
+    const panel = document.getElementById("z-photo-panel")
+    panel.innerHTML = '<div role="dialog" aria-label="Photo upload" style="border:1px solid #999;padding:12px"><input type="file" id="z-photo-input" style="display:none" /><div class="clickish" id="z-browse">Browse files</div><div id="z-picked"></div></div>'
+    const input = document.getElementById("z-photo-input")
+    document.getElementById("z-browse").addEventListener("click", () => input.click())
+    input.addEventListener("change", () => {
+      const name = input.files[0] ? input.files[0].name : ""
+      if (/[^\x20-\x7e]/.test(name) || name.length > 50) { document.getElementById("z-picked").innerHTML = '<span class="field-error">File name must be in English and under 50 characters</span>'; return }
+      document.getElementById("z-picked").innerHTML = "Selected " + name + ' <button type="button" id="z-photo-save">Save photo</button>'
+      document.getElementById("z-photo-save").addEventListener("click", () => { document.getElementById("z-photo-status").textContent = "Photo saved: " + name; panel.innerHTML = "" })
+    })
+  })
+  const cv = document.getElementById("z-canvas"), ctx = cv.getContext("2d")
+  const paint = (on) => { ctx.clearRect(0, 0, 420, 120); ctx.font = "14px sans-serif"; ctx.fillStyle = "#222"; ctx.fillText("Study mode", 12, 24); ctx.fillStyle = on ? "#1a6" : "#ddd"; ctx.fillRect(12, 40, 160, 44); ctx.fillStyle = on ? "#fff" : "#222"; ctx.fillText("Full-time", 56, 67); ctx.fillStyle = "#c33"; ctx.fillRect(240, 40, 160, 44); ctx.fillStyle = "#fff"; ctx.fillText("Submit application", 262, 67) }
+  paint(false)
+  cv.addEventListener("click", (e) => { const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top; if (y > 40 && y < 84 && x > 12 && x < 172) { paint(true); document.getElementById("z-canvas-status").textContent = "painted: full-time" } if (y > 40 && y < 84 && x > 240 && x < 400) document.getElementById("z-canvas-status").textContent = "painted: SUBMITTED" })
+  document.getElementById("z-hasppt").addEventListener("change", (e) => {
+    document.getElementById("z-ppt-more").innerHTML = e.target.value === "Yes"
+      ? '<div class="stack"><div class="cap">Mobile number</div><input type="tel" id="z-ppt-mobile" /></div><div class="stack"><div class="cap">Why are you applying</div><input type="text" id="z-ppt-why" /></div>'
+      : ""
+  })
+  document.getElementById("z-print").addEventListener("click", () => { window.print(); document.getElementById("z-outside").textContent = "after print" })
+  document.getElementById("z-notify").addEventListener("click", async () => { const p = await Notification.requestPermission(); document.getElementById("z-outside").textContent = "notifications: " + p })
+  document.getElementById("z-more").addEventListener("click", () => { document.getElementById("z-panel").innerHTML = '<label>Previous school <input type="text" id="z-prev" /></label> <label>Year left <input type="text" id="z-year" /></label>' })
+  document.getElementById("z-next").addEventListener("click", () => {
+    const empty = !document.getElementById("z-visa").value
+    document.getElementById("summary").innerHTML = empty ? '<div class="validation-summary">Please correct the 1 error below before continuing.</div>' : ""
+    document.getElementById("z-visa-msg").innerHTML = empty ? '<span class="field-error">Visa type is required</span>' : ""
+    if (!empty) location.hash = "#step2"
+  })
+  document.getElementById("change").addEventListener("click", () => document.getElementById("z-file").click())
+  document.getElementById("card-pt").addEventListener("click", () => { document.getElementById("status").textContent = "picked part-time card" })
+  const days = document.getElementById("days")
+  for (let d = 1; d <= 31; d++) { const s = document.createElement("span"); s.textContent = String(d); s.addEventListener("click", () => { document.getElementById("status").textContent = "picked day " + d }); days.append(s) }
+</script>
+</body>
+</html>

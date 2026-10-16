@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>本页在 ego lite 窗口里</title>
+<style>
+  :root { --ink: #1f3a33; --soft: #5b6b65; --paper: #f6f1e7; --line: #d9c3a8; --rust: #b4562f; }
+  * { box-sizing: border-box; }
+  body { font: 17px/1.75 -apple-system, "PingFang SC", sans-serif; background: var(--paper); color: var(--ink); margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; }
+  main { width: 100%; max-width: 620px; padding: 40px clamp(24px, 6vw, 56px); }
+  .tag { display: inline-block; font-size: 14px; color: var(--rust); border: 1px solid var(--line); border-radius: 999px; padding: 3px 16px; margin-bottom: 28px; background: #fffdf8; }
+  /* 一只 CSS 画的浏览器窗口：一眼看出“页面在那边” */
+  .window { width: 108px; height: 78px; border: 3px solid var(--ink); border-radius: 12px; background: #fffdf8; margin-bottom: 26px; overflow: hidden; }
+  .window i { display: block; height: 18px; border-bottom: 3px solid var(--ink); background: radial-gradient(circle at 12px 9px, var(--rust) 3.5px, transparent 3.5px), radial-gradient(circle at 26px 9px, var(--line) 3.5px, transparent 3.5px), radial-gradient(circle at 40px 9px, var(--line) 3.5px, transparent 3.5px); }
+  .window b { display: block; margin: 11px 12px 0; height: 7px; border-radius: 4px; background: var(--line); box-shadow: 0 15px 0 var(--line), 0 30px 0 #e8ddc9; }
+  h1 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.35; margin: 0 0 14px; letter-spacing: 0.01em; }
+  h1 em { font-style: normal; color: var(--rust); }
+  .why { color: var(--soft); font-size: 18px; margin: 0 0 30px; }
+  ol { list-style: none; margin: 0 0 26px; padding: 0; }
+  ol li { display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-top: 1px solid var(--line); }
+  ol li:last-child { border-bottom: 1px solid var(--line); }
+  ol b { flex: none; font-size: 22px; color: var(--rust); font-variant-numeric: tabular-nums; }
+  ol span { font-size: 17px; }
+  .foot { color: var(--soft); font-size: 15px; }
+</style>
+</head>
+<body>
+<main id="held">
+  <div class="tag">ego lite · UCAS 专用通道</div>
+  <div class="window"><i></i><b></b></div>
+  <h1>这个申请页，正开在 <em>ego lite 窗口</em>里</h1>
+  <p class="why">UCAS 会把内置浏览器认成机器、人机验证无限循环。ego lite 是一台真浏览器——同样的操作，直达登录页，不触发关卡。</p>
+  <ol>
+    <li><b>1</b><span>AI 在 ego 自己的独立工作区里填表，不抢您的浏览窗口。</span></li>
+    <li><b>2</b><span>轮到人的时候（登录、人机验证、最终提交）：直接切到那个窗口亲手操作——那本来就是给您的窗口，您一动手，AI 立刻停手。</span></li>
+    <li><b>3</b><span>这一页的工具栏照常可用：地址栏显示的就是那个标签页，前进 / 后退 / 刷新操作的也是它。</span></li>
+  </ol>
+  <p class="foot">想换回来看？☰ 菜单里有【回内置浏览器】。</p>
+</main>
+<main id="setup" hidden>
+  <div class="tag">ego lite · 首次设置</div>
+  <div class="window"><i></i><b></b></div>
+  <h1>请点完 ego 刚弹出的<em>欢迎窗口</em></h1>
+  <p class="why">ego 第一次在这台电脑上工作，要先由您亲手点完它自己的欢迎窗口（刚弹出的那个；没看见就看看程序坞）。这是它自家的门槛，官方规定只能人点——AI 代点会永远卡住，所以这一步留给您。</p>
+  <ol>
+    <li><b>1</b><span>切到那个欢迎窗口，一路点完。</span></li>
+    <li><b>2</b><span>点完不用回来：这边每隔几秒自动再问一次，通了就自己继续开页面。</span></li>
+  </ol>
+  <p class="foot">等了十分钟它还没通？这边会自己退回内置浏览器继续干活，并告诉您一声。</p>
+</main>
+<script>
+  // 首次设置态：bindPageFor 加载 #setup；向导点完、空间通了即换回正式文案。
+  if (location.hash === "#setup") {
+    document.getElementById("held").hidden = true
+    document.getElementById("setup").hidden = false
+  }
+</script>
+</body>
+</html>

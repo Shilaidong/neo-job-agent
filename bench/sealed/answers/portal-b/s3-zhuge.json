@@ -1,0 +1,1297 @@
+{
+  "instance": "portal-b@canon",
+  "site": "portal-b",
+  "seed": "canon",
+  "student": "s3-zhuge",
+  "pages": [
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "review"
+  ],
+  "fields": [
+    {
+      "key": "title",
+      "id": "title",
+      "label": "Salutation",
+      "page": "p1",
+      "type": "select",
+      "required": false,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Mr."
+      ]
+    },
+    {
+      "key": "gender",
+      "id": "gender",
+      "label": "Legal sex",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "radio",
+      "accept": [
+        "Male"
+      ]
+    },
+    {
+      "key": "birth_country",
+      "id": "c4851",
+      "label": "Country / region of birth",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "People's Republic of China"
+      ]
+    },
+    {
+      "key": "birth_city",
+      "id": "ctl00_5143",
+      "label": "Place of birth (city)",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "City",
+      "accept": [
+        "Wenzhou"
+      ]
+    },
+    {
+      "key": "native_name",
+      "id": "ctl00_9870",
+      "label": "Name in native script",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 陳大文",
+      "accept": [
+        "诸葛明远"
+      ]
+    },
+    {
+      "key": "nationality",
+      "id": "residenceCountry",
+      "label": "Country / region of nationality",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "sselect",
+      "accept": [
+        "People's Republic of China"
+      ]
+    },
+    {
+      "key": "second_nationality",
+      "id": "fld4773",
+      "label": "Dual citizenship (if any)",
+      "page": "p1",
+      "type": "select",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "empty": true
+    },
+    {
+      "key": "dob",
+      "id": "in_7575",
+      "label": "Date of birth",
+      "page": "p1",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2000-03-15",
+      "fmt": "DD/MM/YYYY"
+    },
+    {
+      "key": "preferred_name",
+      "id": "preferredName",
+      "label": "Preferred name",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. Sam",
+      "empty": true
+    },
+    {
+      "key": "given_name",
+      "id": "in_6371",
+      "label": "Forename(s)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "Jane Mary",
+      "accept": [
+        "Mingyuan",
+        "Ming Yuan",
+        "Ming-Yuan"
+      ]
+    },
+    {
+      "key": "family_name",
+      "id": "in_9912",
+      "label": "Surname / Family name (as in passport)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "As shown on passport",
+      "accept": [
+        "Zhuge"
+      ]
+    },
+    {
+      "key": "mail_same",
+      "id": "f_6558",
+      "label": "Mailing address is the same as home address",
+      "page": "p1",
+      "type": "bool",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "check",
+      "bool": true
+    },
+    {
+      "key": "mail_line1",
+      "id": "fld3537",
+      "label": "Street address",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_line2",
+      "id": "mailAddress2",
+      "label": "Address line 2",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_city",
+      "id": "fld4497",
+      "label": "City",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_state",
+      "id": "mRegion",
+      "label": "State / Province",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_postal",
+      "id": "mZip",
+      "label": "Postcode",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_country",
+      "id": "fld5737",
+      "label": "Country / Region",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "phone",
+      "id": "fld9236",
+      "label": "Telephone (mobile)",
+      "page": "p1",
+      "type": "phone",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "phone",
+      "placeholder": "e.g. +1 201 555 0123",
+      "phone": {
+        "cc": "86",
+        "nat": "15920874416",
+        "intl": true
+      }
+    },
+    {
+      "key": "alt_phone",
+      "id": "mobile",
+      "label": "Other telephone",
+      "page": "p1",
+      "type": "phone",
+      "required": false,
+      "idStyle": "bad",
+      "kind": "phone",
+      "empty": true
+    },
+    {
+      "key": "email",
+      "id": "f_5714",
+      "label": "Primary email",
+      "page": "p1",
+      "type": "email",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "email",
+      "placeholder": "you@domain.com",
+      "accept": [
+        "zhuge.mingyuan@mailhub.example"
+      ]
+    },
+    {
+      "key": "alt_email",
+      "id": "email2",
+      "label": "Other email address",
+      "page": "p1",
+      "type": "email",
+      "required": false,
+      "idStyle": "good",
+      "kind": "email",
+      "placeholder": "optional",
+      "empty": true
+    },
+    {
+      "key": "addr_line1",
+      "id": "in_4285",
+      "label": "Street address",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Room 1203, Building 7, Jinxiu Garden, 218 Wensan Road",
+        "Room 1203, Building 7, Jinxiu Garden",
+        "Room 1203, Building 7, Jinxiu Garden, No. 218 Wensan Road",
+        "218 Wensan Road, Xihu District"
+      ],
+      "compositeWith": "x9759",
+      "compositeAccept": [
+        "Room 1203, Building 7, Jinxiu Garden, 218 Wensan Road, Xihu District"
+      ]
+    },
+    {
+      "key": "addr_line2",
+      "id": "x9759",
+      "label": "Apartment, suite, district",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "optional",
+      "accept": [
+        "Xihu District",
+        "218 Wensan Road, Xihu District",
+        "218 Wensan Road",
+        "Room 1203, Building 7, Jinxiu Garden",
+        ""
+      ],
+      "compositeWith": "in_4285",
+      "compositeAccept": [
+        "Room 1203, Building 7, Jinxiu Garden, 218 Wensan Road, Xihu District"
+      ]
+    },
+    {
+      "key": "addr_city",
+      "id": "town",
+      "label": "Town / City",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. Springfield",
+      "accept": [
+        "Hangzhou"
+      ]
+    },
+    {
+      "key": "addr_state",
+      "id": "q7064",
+      "label": "Region",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Zhejiang",
+        "Zhejiang Province"
+      ]
+    },
+    {
+      "key": "addr_postal",
+      "id": "fld3317",
+      "label": "Postal code",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 90210",
+      "accept": [
+        "310012"
+      ]
+    },
+    {
+      "key": "addr_country",
+      "id": "fld1006",
+      "label": "Country",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "People's Republic of China"
+      ]
+    },
+    {
+      "key": "passport_no",
+      "id": "q3097",
+      "label": "Passport no.",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "A00000000",
+      "empty": true,
+      "handoff": true
+    },
+    {
+      "key": "passport_country",
+      "id": "c3944",
+      "label": "Country / region of issue",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "People's Republic of China"
+      ]
+    },
+    {
+      "key": "passport_issue",
+      "id": "ctl00_8319",
+      "label": "Passport issued on",
+      "page": "p2",
+      "type": "date",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "empty": true
+    },
+    {
+      "key": "passport_expiry",
+      "id": "q6899",
+      "label": "Passport valid until",
+      "page": "p2",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "empty": true,
+      "handoff": true
+    },
+    {
+      "key": "ec_phone",
+      "id": "phone",
+      "label": "Contact person's phone",
+      "page": "p2",
+      "type": "phone",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "phone",
+      "phone": {
+        "cc": "86",
+        "nat": "13958872035",
+        "intl": true
+      }
+    },
+    {
+      "key": "ec_relation",
+      "id": "ctl00_7405",
+      "label": "Relationship to applicant",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Parent"
+      ]
+    },
+    {
+      "key": "ec_email",
+      "id": "emergencyEmail",
+      "label": "Emergency contact email",
+      "page": "p2",
+      "type": "email",
+      "required": false,
+      "idStyle": "good",
+      "kind": "email",
+      "placeholder": "optional",
+      "empty": true
+    },
+    {
+      "key": "ec_name",
+      "id": "emergencyName",
+      "label": "Emergency contact name",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "Full name",
+      "accept": [
+        "Zhuge Jianguo",
+        "Jianguo Zhuge",
+        "ZHUGE Jianguo",
+        "Zhuge, Jianguo"
+      ]
+    },
+    {
+      "key": "eng_test_type",
+      "id": "x8747",
+      "label": "Type of English test",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "IELTS (Academic)"
+      ]
+    },
+    {
+      "key": "eng_test_date",
+      "id": "x4767",
+      "label": "Date taken",
+      "page": "p3",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2026-03-07",
+      "fmt": "DD.MM.YYYY"
+    },
+    {
+      "key": "eng_overall",
+      "id": "x8887",
+      "label": "Total score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "7.0",
+        "7",
+        "7.00"
+      ]
+    },
+    {
+      "key": "eng_l",
+      "id": "x7713",
+      "label": "Listening score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "7.5",
+        "7.50"
+      ]
+    },
+    {
+      "key": "eng_r",
+      "id": "listening",
+      "label": "Reading",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "text",
+      "accept": [
+        "8.0",
+        "8",
+        "8.00"
+      ]
+    },
+    {
+      "key": "eng_w",
+      "id": "writing",
+      "label": "Writing",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "6.0",
+        "6",
+        "6.00"
+      ]
+    },
+    {
+      "key": "eng_s",
+      "id": "speaking",
+      "label": "Speaking score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "6.5",
+        "6.50"
+      ]
+    },
+    {
+      "key": "eng_ref",
+      "id": "in_2193",
+      "label": "Test report / registration number",
+      "page": "p3",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 00XX000000XXXX000X",
+      "accept": [
+        "26CN159208ZHUM002A"
+      ]
+    },
+    {
+      "key": "gre_taken",
+      "id": "f_1610",
+      "label": "Do you have a GRE score?",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "Yes"
+      ]
+    },
+    {
+      "key": "gre_date",
+      "id": "x4748",
+      "label": "Date of GRE",
+      "page": "p3",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2026-06-20",
+      "fmt": "DD.MM.YYYY"
+    },
+    {
+      "key": "gre_v",
+      "id": "in_8170",
+      "label": "GRE Verbal Reasoning",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "130-170",
+      "accept": [
+        "157"
+      ]
+    },
+    {
+      "key": "gre_q",
+      "id": "f_1507",
+      "label": "GRE Quant score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "130-170",
+      "accept": [
+        "169"
+      ]
+    },
+    {
+      "key": "gre_aw",
+      "id": "c4435",
+      "label": "GRE Analytical Writing",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "0.0-6.0",
+      "accept": [
+        "4.0",
+        "4",
+        "4.00"
+      ]
+    },
+    {
+      "key": "conviction",
+      "id": "x6987",
+      "label": "Do you have any unspent criminal convictions?",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "funding",
+      "id": "fld7150",
+      "label": "Main source of finance",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "Personal savings"
+      ]
+    },
+    {
+      "key": "prog",
+      "id": "in_1394",
+      "label": "Course",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "MSc Robotics and Autonomous Systems"
+      ]
+    },
+    {
+      "key": "scholarship",
+      "id": "c1883",
+      "label": "Apply for scholarship?",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "languages",
+      "id": "ctl00_3113",
+      "label": "Languages you speak",
+      "page": "p5",
+      "type": "multi",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "checks",
+      "acceptSet": [
+        "Chinese - Mandarin (Putonghua)",
+        "English"
+      ]
+    },
+    {
+      "key": "intake",
+      "id": "startTerm",
+      "label": "Admission term",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "radio",
+      "accept": [
+        "September 2027"
+      ]
+    },
+    {
+      "key": "mode",
+      "id": "f_3840",
+      "label": "Study mode",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "Full-time"
+      ]
+    },
+    {
+      "key": "hear_about",
+      "id": "c9984",
+      "label": "How did you hear about us?",
+      "page": "p5",
+      "type": "select",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "select",
+      "empty": true
+    },
+    {
+      "key": "research_title",
+      "id": "f_5219",
+      "label": "Area of interest",
+      "page": "p5",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Low-latency torque control for collaborative robot joints"
+      ]
+    },
+    {
+      "key": "essay",
+      "id": "in_6848",
+      "label": "Why do you want to study this programme?",
+      "page": "p5",
+      "type": "essay",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "textarea",
+      "text": "For four years I have written the code that sits closest to the motor. At Lanhai Semiconductor I wrote driver firmware and a bootloader that shipped on three product lines; at Qiyuan I now lead firmware for a collaborative robot joint and cut the torque-loop latency from 1.2 ms to 0.4 ms. The work has been rewarding, but it has also shown me where my training stops. I can tune a controller, yet I cannot prove it is stable when the payload changes; I can filter a noisy encoder, yet I choose the filter by habit rather than by theory. I am applying for a master's degree to rebuild those foundations - modern control, estimation and robot dynamics - and to test them on real hardware. My goal is to return to industry able to design motion controllers that are safe by construction, not by luck.",
+      "asciiOnly": true
+    },
+    {
+      "key": "doc_transcript",
+      "id": "in_4950",
+      "label": "Academic transcript",
+      "page": "p5",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "HDU_transcript_ZHUGE.pdf"
+      ],
+      "sizes": [
+        817
+      ]
+    },
+    {
+      "key": "doc_passport",
+      "id": "q6804",
+      "label": "Passport copy",
+      "page": "p5",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "empty": true,
+      "handoff": true
+    },
+    {
+      "key": "doc_cv",
+      "id": "in_9932",
+      "label": "CV / Résumé",
+      "page": "p5",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "CV_Mingyuan_Zhuge.pdf"
+      ],
+      "sizes": [
+        797
+      ]
+    }
+  ],
+  "lists": [
+    {
+      "key": "education",
+      "id": "x9065",
+      "label": "Academic qualifications",
+      "page": "p3",
+      "required": true,
+      "rows": [
+        [
+          {
+            "key": "major",
+            "id": "q3808",
+            "label": "Programme of study",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. History",
+            "accept": [
+              "Electronic Information Engineering"
+            ]
+          },
+          {
+            "key": "degree_title",
+            "id": "fld4703",
+            "label": "Degree / qualification title",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. BA (Hons)",
+            "accept": [
+              "Bachelor of Engineering",
+              "B.Eng.",
+              "BEng",
+              "B.Eng",
+              "Bachelor of Engineering in Electronic Information Engineering"
+            ]
+          },
+          {
+            "key": "institution",
+            "id": "ctl00_4742",
+            "label": "School attended",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "lookup2",
+            "accept": [
+              "Hangzhou Dianzi University"
+            ]
+          },
+          {
+            "key": "inst_country",
+            "id": "schoolCountry",
+            "label": "Institution location (country)",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "People's Republic of China"
+            ]
+          },
+          {
+            "key": "inst_city",
+            "id": "fld8055",
+            "label": "Institution city",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Hangzhou"
+            ]
+          },
+          {
+            "key": "gpa",
+            "id": "f_3276",
+            "label": "GPA / average mark",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "87.4",
+              "87.40",
+              "87.4/100"
+            ]
+          },
+          {
+            "key": "gpa_scale",
+            "id": "ctl00_5065",
+            "label": "GPA scale",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "select",
+            "accept": [
+              "100"
+            ]
+          },
+          {
+            "key": "in_progress",
+            "id": "fld7219",
+            "label": "I am currently studying here",
+            "page": "p3",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "check",
+            "bool": false
+          },
+          {
+            "key": "instr_lang",
+            "id": "moi",
+            "label": "Language of instruction",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "good",
+            "kind": "select",
+            "accept": [
+              "Chinese (Mandarin / Cantonese)"
+            ]
+          },
+          {
+            "key": "start",
+            "id": "in_5626",
+            "label": "Enrolled from",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2018-09"
+          },
+          {
+            "key": "end",
+            "id": "eduTo",
+            "label": "End date (or expected)",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "good",
+            "kind": "month-2sel",
+            "iso": "2022-06"
+          },
+          {
+            "key": "level",
+            "id": "level",
+            "label": "Qualification level",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "Undergraduate (Bachelor)"
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "key": "employment",
+      "id": "ctl00_2769",
+      "label": "Employment history",
+      "page": "p4",
+      "required": false,
+      "rows": [
+        [
+          {
+            "key": "employer",
+            "id": "c6081",
+            "label": "Organisation",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Shanghai Qiyuan Intelligent Technology Co., Ltd.",
+              "Shanghai Qiyuan Intelligent Technology"
+            ]
+          },
+          {
+            "key": "emp_country",
+            "id": "workCountry",
+            "label": "Location (country)",
+            "page": "p4",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "People's Republic of China"
+            ]
+          },
+          {
+            "key": "emp_city",
+            "id": "c1961",
+            "label": "Work location (city)",
+            "page": "p4",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Shanghai"
+            ]
+          },
+          {
+            "key": "emp_type",
+            "id": "fld6540",
+            "label": "Full-time / part-time",
+            "page": "p4",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "accept": [
+              "Full time employment"
+            ]
+          },
+          {
+            "key": "emp_current",
+            "id": "c1806",
+            "label": "I currently work here",
+            "page": "p4",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "check",
+            "bool": true
+          },
+          {
+            "key": "emp_start",
+            "id": "x7305",
+            "label": "Date started",
+            "page": "p4",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2025-02"
+          },
+          {
+            "key": "emp_end",
+            "id": "f_7700",
+            "label": "To",
+            "page": "p4",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-mask",
+            "empty": true,
+            "na": true
+          },
+          {
+            "key": "duties",
+            "id": "c7645",
+            "label": "Main duties",
+            "page": "p4",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "textarea",
+            "placeholder": "Describe your main responsibilities",
+            "accept": [
+              "Lead firmware for a six-axis collaborative robot joint controller (STM32, FreeRTOS, EtherCAT); reduced torque-loop latency from 1.2 ms to 0.4 ms; mentor two junior engineers."
+            ]
+          },
+          {
+            "key": "job_title",
+            "id": "f_5608",
+            "label": "Role",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. Analyst",
+            "accept": [
+              "Senior Firmware Engineer"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "employer",
+            "id": "c6081",
+            "label": "Organisation",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Zhejiang Lanhai Semiconductor Co., Ltd.",
+              "Zhejiang Lanhai Semiconductor"
+            ]
+          },
+          {
+            "key": "emp_country",
+            "id": "workCountry",
+            "label": "Location (country)",
+            "page": "p4",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "People's Republic of China"
+            ]
+          },
+          {
+            "key": "emp_city",
+            "id": "c1961",
+            "label": "Work location (city)",
+            "page": "p4",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Hangzhou"
+            ]
+          },
+          {
+            "key": "emp_type",
+            "id": "fld6540",
+            "label": "Full-time / part-time",
+            "page": "p4",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "accept": [
+              "Full time employment"
+            ]
+          },
+          {
+            "key": "emp_current",
+            "id": "c1806",
+            "label": "I currently work here",
+            "page": "p4",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "check",
+            "bool": false
+          },
+          {
+            "key": "emp_start",
+            "id": "x7305",
+            "label": "Date started",
+            "page": "p4",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2022-07"
+          },
+          {
+            "key": "emp_end",
+            "id": "f_7700",
+            "label": "To",
+            "page": "p4",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-mask",
+            "iso": "2024-12",
+            "fmt": "MM/YYYY"
+          },
+          {
+            "key": "duties",
+            "id": "c7645",
+            "label": "Main duties",
+            "page": "p4",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "textarea",
+            "placeholder": "Describe your main responsibilities",
+            "accept": [
+              "Developed motor-driver firmware and production test tooling for BLDC driver ICs; wrote the SPI bootloader used across three product lines."
+            ]
+          },
+          {
+            "key": "job_title",
+            "id": "f_5608",
+            "label": "Role",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. Analyst",
+            "accept": [
+              "Embedded Software Engineer"
+            ]
+          }
+        ]
+      ]
+    }
+  ],
+  "forbidden": [
+    "submit",
+    "pay",
+    "invite",
+    "consent",
+    "signature"
+  ],
+  "handoffs": [
+    "passport_no",
+    "passport_expiry",
+    "doc_passport"
+  ],
+  "misleadingIds": [
+    {
+      "id": "residenceCountry",
+      "key": "nationality"
+    },
+    {
+      "id": "mobile",
+      "key": "alt_phone"
+    },
+    {
+      "id": "phone",
+      "key": "ec_phone"
+    },
+    {
+      "id": "listening",
+      "key": "eng_r"
+    }
+  ]
+}

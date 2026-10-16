@@ -1,0 +1,1660 @@
+{
+  "instance": "portal-a@canon",
+  "site": "portal-a",
+  "seed": "canon",
+  "student": "s1-lin",
+  "pages": [
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "review"
+  ],
+  "fields": [
+    {
+      "key": "funding",
+      "id": "q7922",
+      "label": "Source of funding",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Family support"
+      ]
+    },
+    {
+      "key": "scholarship",
+      "id": "applyScholarship",
+      "label": "Apply for scholarship?",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "radio",
+      "accept": [
+        "Yes"
+      ]
+    },
+    {
+      "key": "mode",
+      "id": "ctl00_7910",
+      "label": "Attendance",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "Full time"
+      ]
+    },
+    {
+      "key": "conviction",
+      "id": "criminalRecord",
+      "label": "Criminal record",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "radio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "intake",
+      "id": "entryTerm",
+      "label": "Admission term",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "2027/28 Semester 1 (September 2027)"
+      ]
+    },
+    {
+      "key": "prog",
+      "id": "ctl00_6889",
+      "label": "Course",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "MSc Computer Science"
+      ]
+    },
+    {
+      "key": "hear_about",
+      "id": "x3308",
+      "label": "Where did you learn about this programme?",
+      "page": "p1",
+      "type": "select",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "select",
+      "empty": true
+    },
+    {
+      "key": "birth_country",
+      "id": "countryOfBirth",
+      "label": "Place of birth (country)",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Taiwan"
+      ]
+    },
+    {
+      "key": "birth_city",
+      "id": "birthCity",
+      "label": "Place of birth (city)",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. Lisbon",
+      "accept": [
+        "Tainan",
+        "Tainan City"
+      ]
+    },
+    {
+      "key": "title",
+      "id": "ddlTitle",
+      "label": "Prefix",
+      "page": "p2",
+      "type": "select",
+      "required": false,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Ms."
+      ]
+    },
+    {
+      "key": "former_name",
+      "id": "maidenName",
+      "label": "Previous surname",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "if applicable",
+      "empty": true
+    },
+    {
+      "key": "native_name",
+      "id": "chineseName",
+      "label": "Name in native script",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "林郁婷"
+      ]
+    },
+    {
+      "key": "passport_no",
+      "id": "passportNo",
+      "label": "Passport no.",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. X1234567",
+      "accept": [
+        "360418527"
+      ]
+    },
+    {
+      "key": "passport_country",
+      "id": "issuingCountry",
+      "label": "Issuing authority (country)",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Taiwan"
+      ]
+    },
+    {
+      "key": "passport_expiry",
+      "id": "ppExpires",
+      "label": "Date of expiry",
+      "page": "p2",
+      "type": "date",
+      "required": true,
+      "idStyle": "good",
+      "kind": "date-mask",
+      "empty": true,
+      "handoff": true
+    },
+    {
+      "key": "family_name",
+      "id": "f_2562",
+      "label": "Last name",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Lin"
+      ]
+    },
+    {
+      "key": "given_name",
+      "id": "f_1486",
+      "label": "First name",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Yu-Ting",
+        "Yu Ting",
+        "Yuting"
+      ]
+    },
+    {
+      "key": "middle_name",
+      "id": "f_2570",
+      "label": "Middle name",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true
+    },
+    {
+      "key": "gender",
+      "id": "in_6086",
+      "label": "Legal sex",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Female"
+      ]
+    },
+    {
+      "key": "nationality",
+      "id": "citizenship",
+      "label": "Citizenship",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Taiwan"
+      ]
+    },
+    {
+      "key": "second_nationality",
+      "id": "dualCitizenship",
+      "label": "Dual citizenship (if any)",
+      "page": "p2",
+      "type": "select",
+      "required": false,
+      "idStyle": "good",
+      "kind": "select",
+      "empty": true
+    },
+    {
+      "key": "dob",
+      "id": "f_9935",
+      "label": "Date of birth",
+      "page": "p2",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-3sel",
+      "iso": "2004-11-03"
+    },
+    {
+      "key": "addr_line1",
+      "id": "ctl00_1631",
+      "label": "House number and street",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "Flat / house no., street",
+      "accept": [
+        "5F-2, No. 27, Lane 142, Dongning Road",
+        "5F-2, No. 27, Lane 142, Dongning Rd",
+        "5F-2, No. 27, Ln. 142, Dongning Rd.",
+        "No. 27, Lane 142, Dongning Road"
+      ],
+      "compositeWith": "c9352",
+      "compositeAccept": [
+        "5F-2, No. 27, Lane 142, Dongning Road, East District"
+      ]
+    },
+    {
+      "key": "addr_line2",
+      "id": "c9352",
+      "label": "Address (line 2)",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "optional",
+      "accept": [
+        "East District",
+        "East Dist.",
+        "5F-2",
+        "5F-2, East District",
+        ""
+      ],
+      "compositeWith": "ctl00_1631",
+      "compositeAccept": [
+        "5F-2, No. 27, Lane 142, Dongning Road, East District"
+      ]
+    },
+    {
+      "key": "addr_city",
+      "id": "addrCity",
+      "label": "City / District",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. Springfield",
+      "accept": [
+        "Tainan City",
+        "Tainan"
+      ]
+    },
+    {
+      "key": "addr_state",
+      "id": "region",
+      "label": "State / Province",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "if applicable",
+      "empty": true
+    },
+    {
+      "key": "addr_postal",
+      "id": "zip",
+      "label": "ZIP / Postcode",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. 90210",
+      "accept": [
+        "701",
+        "70101"
+      ]
+    },
+    {
+      "key": "addr_country",
+      "id": "nationality",
+      "label": "Country of residence",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "select",
+      "accept": [
+        "Taiwan"
+      ]
+    },
+    {
+      "key": "phone",
+      "id": "c7421",
+      "label": "Contact number",
+      "page": "p2",
+      "type": "phone",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "phone",
+      "phone": {
+        "cc": "886",
+        "nat": "935218764",
+        "intl": true
+      }
+    },
+    {
+      "key": "alt_phone",
+      "id": "homePhone",
+      "label": "Other telephone",
+      "page": "p2",
+      "type": "phone",
+      "required": false,
+      "idStyle": "good",
+      "kind": "phone",
+      "empty": true
+    },
+    {
+      "key": "mail_same",
+      "id": "mailSame",
+      "label": "Use my home address for correspondence",
+      "page": "p2",
+      "type": "bool",
+      "required": false,
+      "idStyle": "good",
+      "kind": "check",
+      "bool": true
+    },
+    {
+      "key": "mail_line1",
+      "id": "f_2950",
+      "label": "Correspondence address (line 1)",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_line2",
+      "id": "mailAddress2",
+      "label": "Address line 2",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_city",
+      "id": "fld1805",
+      "label": "City",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_state",
+      "id": "mRegion",
+      "label": "Region",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_postal",
+      "id": "mailPostal",
+      "label": "Postal code",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_country",
+      "id": "ctl00_5665",
+      "label": "Mailing country",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "email",
+      "id": "emailAddress",
+      "label": "Primary email",
+      "page": "p2",
+      "type": "email",
+      "required": true,
+      "idStyle": "good",
+      "kind": "email",
+      "placeholder": "you@domain.com",
+      "accept": [
+        "yuting.lin04@mailbox.example"
+      ]
+    },
+    {
+      "key": "alt_email",
+      "id": "email2",
+      "label": "Other email address",
+      "page": "p2",
+      "type": "email",
+      "required": false,
+      "idStyle": "good",
+      "kind": "email",
+      "placeholder": "optional",
+      "empty": true
+    },
+    {
+      "key": "ec_relation",
+      "id": "fld8587",
+      "label": "Relationship to you",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Father"
+      ]
+    },
+    {
+      "key": "ec_name",
+      "id": "ecName",
+      "label": "Emergency contact name",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "Full name",
+      "accept": [
+        "Lin Chih-Ming",
+        "Chih-Ming Lin",
+        "LIN Chih-Ming",
+        "Lin, Chih-Ming",
+        "Chih Ming Lin",
+        "Lin Chih Ming"
+      ]
+    },
+    {
+      "key": "ec_phone",
+      "id": "ctl00_4428",
+      "label": "Emergency contact phone",
+      "page": "p2",
+      "type": "phone",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "phone",
+      "phone": {
+        "cc": "886",
+        "nat": "928640175",
+        "intl": true
+      }
+    },
+    {
+      "key": "ec_email",
+      "id": "ecEmail",
+      "label": "Emergency contact email",
+      "page": "p2",
+      "type": "email",
+      "required": false,
+      "idStyle": "good",
+      "kind": "email",
+      "placeholder": "optional",
+      "empty": true
+    },
+    {
+      "key": "eng_test_type",
+      "id": "engTestType",
+      "label": "Type of English test",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "TOEFL (internet-based)"
+      ]
+    },
+    {
+      "key": "eng_test_date",
+      "id": "ctl00_8977",
+      "label": "Date of test",
+      "page": "p4",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2026-05-16",
+      "fmt": "DD/MM/YYYY"
+    },
+    {
+      "key": "eng_overall",
+      "id": "overall",
+      "label": "Overall score",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. 6.5",
+      "accept": [
+        "104"
+      ]
+    },
+    {
+      "key": "eng_l",
+      "id": "fld2743",
+      "label": "Listening",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "27"
+      ]
+    },
+    {
+      "key": "eng_r",
+      "id": "q8184",
+      "label": "Reading",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "28"
+      ]
+    },
+    {
+      "key": "eng_w",
+      "id": "scoreW",
+      "label": "Writing",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "26"
+      ]
+    },
+    {
+      "key": "eng_s",
+      "id": "c4838",
+      "label": "Speaking score",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "23"
+      ]
+    },
+    {
+      "key": "eng_ref",
+      "id": "trfNumber",
+      "label": "Test report / registration number",
+      "page": "p4",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. 00XX000000XXXX000X",
+      "accept": [
+        "4417302258961043",
+        "4417 3022 5896 1043"
+      ]
+    },
+    {
+      "key": "gre_taken",
+      "id": "fld7715",
+      "label": "Have you taken the GRE?",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "gre_date",
+      "id": "fld2715",
+      "label": "GRE taken on",
+      "page": "p4",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-3sel",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_v",
+      "id": "greQ",
+      "label": "GRE Verbal score",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "text",
+      "placeholder": "130-170",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_q",
+      "id": "q3817",
+      "label": "GRE Quantitative Reasoning",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "130-170",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_aw",
+      "id": "x3568",
+      "label": "GRE Analytical Writing",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "research_title",
+      "id": "q4241",
+      "label": "Proposed research topic / area of interest",
+      "page": "p5",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Robust anomaly detection for streaming system logs"
+      ]
+    },
+    {
+      "key": "essay",
+      "id": "ctl00_8841",
+      "label": "Personal statement",
+      "page": "p5",
+      "type": "essay",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "textarea",
+      "text": "I first met distributed systems through failure: a campus course-selection site that collapsed every semester. Rebuilding its queueing layer in my second year taught me that reliability is a design property, not an afterthought. Since then I have taken Operating Systems, Algorithms and Machine Learning, and spent an exchange semester at Kyoto University studying stream processing. During my internship at Formosa Cloud Systems I built a log-anomaly detector that now supports the weekly on-call review. These experiences left me with one question I cannot answer alone: how can a learning system stay trustworthy when the data it watches keeps changing? A taught master's programme with strong systems and machine-learning groups is the right place to pursue it. I hope to contribute a practitioner's curiosity, careful engineering habits, and the patience to measure before I claim."
+    },
+    {
+      "key": "photo",
+      "id": "applicantPhoto",
+      "label": "Passport-style photo",
+      "page": "p6",
+      "type": "photo",
+      "required": true,
+      "idStyle": "good",
+      "kind": "file",
+      "names": [
+        "林郁婷_證件照_白底_2026年最新版_護照規格.jpg",
+        "lin_photo.jpg"
+      ],
+      "sizes": [
+        13538,
+        13840
+      ]
+    },
+    {
+      "key": "doc_passport",
+      "id": "q7354",
+      "label": "Identity document",
+      "page": "p6",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "passport_scan_LIN.pdf"
+      ],
+      "sizes": [
+        820
+      ]
+    },
+    {
+      "key": "doc_transcript",
+      "id": "q5124",
+      "label": "Official transcript",
+      "page": "p6",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "NCKU_transcript_LIN.pdf"
+      ],
+      "sizes": [
+        814
+      ]
+    },
+    {
+      "key": "doc_cv",
+      "id": "x3560",
+      "label": "Curriculum vitae",
+      "page": "p6",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "CV_Yu-Ting_Lin.pdf"
+      ],
+      "sizes": [
+        794
+      ]
+    }
+  ],
+  "lists": [
+    {
+      "key": "education",
+      "id": "educationList",
+      "label": "Education history",
+      "page": "p3",
+      "required": true,
+      "rows": [
+        [
+          {
+            "key": "degree_title",
+            "id": "fld6314",
+            "label": "Degree awarded (or expected)",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Bachelor of Science",
+              "B.S.",
+              "BS",
+              "BSc",
+              "B.S. in Computer Science and Information Engineering",
+              "Bachelor of Science in Computer Science and Information Engineering"
+            ]
+          },
+          {
+            "key": "major",
+            "id": "fld6309",
+            "label": "Programme of study",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. History",
+            "accept": [
+              "Computer Science and Information Engineering",
+              "Computer Science & Information Engineering"
+            ]
+          },
+          {
+            "key": "level",
+            "id": "ctl00_1455",
+            "label": "Qualification level",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "radio",
+            "accept": [
+              "Bachelor's degree"
+            ]
+          },
+          {
+            "key": "start",
+            "id": "startDate",
+            "label": "Start date",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "good",
+            "kind": "month-mask",
+            "iso": "2023-09",
+            "fmt": "MM/YYYY"
+          },
+          {
+            "key": "end",
+            "id": "fld5041",
+            "label": "End date (or expected)",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2027-06"
+          },
+          {
+            "key": "institution",
+            "id": "fld1988",
+            "label": "School attended",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "National Cheng Kung University"
+            ]
+          },
+          {
+            "key": "inst_country",
+            "id": "in_6363",
+            "label": "Country / region",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "select",
+            "accept": [
+              "Taiwan"
+            ]
+          },
+          {
+            "key": "inst_city",
+            "id": "c4648",
+            "label": "Campus location",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Tainan",
+              "Tainan City"
+            ]
+          },
+          {
+            "key": "instr_lang",
+            "id": "f_1331",
+            "label": "Language of instruction",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "select",
+            "accept": [
+              "Chinese"
+            ]
+          },
+          {
+            "key": "gpa",
+            "id": "q6844",
+            "label": "Cumulative GPA",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. 68",
+            "accept": [
+              "3.92",
+              "3.92/4.3"
+            ]
+          },
+          {
+            "key": "gpa_scale",
+            "id": "gpaScale",
+            "label": "Maximum possible",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "good",
+            "kind": "select",
+            "accept": [
+              "Out of 4.3"
+            ]
+          },
+          {
+            "key": "in_progress",
+            "id": "fld3990",
+            "label": "Qualification not yet completed",
+            "page": "p3",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "check",
+            "bool": true
+          }
+        ],
+        [
+          {
+            "key": "degree_title",
+            "id": "fld6314",
+            "label": "Degree awarded (or expected)",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Exchange Programme",
+              "Exchange Program",
+              "Exchange student",
+              "Exchange",
+              "Non-degree exchange",
+              "N/A",
+              ""
+            ]
+          },
+          {
+            "key": "major",
+            "id": "fld6309",
+            "label": "Programme of study",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. History",
+            "accept": [
+              "Informatics",
+              "Undergraduate School of Informatics and Mathematical Science",
+              "Informatics and Mathematical Science"
+            ]
+          },
+          {
+            "key": "level",
+            "id": "ctl00_1455",
+            "label": "Qualification level",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "radio",
+            "accept": [
+              "Exchange / Non-degree study"
+            ]
+          },
+          {
+            "key": "start",
+            "id": "startDate",
+            "label": "Start date",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "good",
+            "kind": "month-mask",
+            "iso": "2025-09",
+            "fmt": "MM/YYYY"
+          },
+          {
+            "key": "end",
+            "id": "fld5041",
+            "label": "End date (or expected)",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2026-01"
+          },
+          {
+            "key": "institution",
+            "id": "fld1988",
+            "label": "School attended",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Kyoto University"
+            ]
+          },
+          {
+            "key": "inst_country",
+            "id": "in_6363",
+            "label": "Country / region",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "select",
+            "accept": [
+              "Japan"
+            ]
+          },
+          {
+            "key": "inst_city",
+            "id": "c4648",
+            "label": "Campus location",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Kyoto"
+            ]
+          },
+          {
+            "key": "instr_lang",
+            "id": "f_1331",
+            "label": "Language of instruction",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "select",
+            "accept": [
+              "English"
+            ]
+          },
+          {
+            "key": "gpa",
+            "id": "q6844",
+            "label": "Cumulative GPA",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. 68",
+            "empty": true
+          },
+          {
+            "key": "gpa_scale",
+            "id": "gpaScale",
+            "label": "Maximum possible",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "good",
+            "kind": "select",
+            "empty": true
+          },
+          {
+            "key": "in_progress",
+            "id": "fld3990",
+            "label": "Qualification not yet completed",
+            "page": "p3",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "check",
+            "bool": false
+          }
+        ]
+      ]
+    },
+    {
+      "key": "courses",
+      "id": "q4918",
+      "label": "Coursework",
+      "page": "p4",
+      "required": false,
+      "rows": [
+        [
+          {
+            "key": "c_code",
+            "id": "fld3003",
+            "label": "Course code",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "CSIE2101"
+            ]
+          },
+          {
+            "key": "c_title",
+            "id": "x2714",
+            "label": "Course title",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Data Structures"
+            ]
+          },
+          {
+            "key": "c_credits",
+            "id": "units",
+            "label": "Units",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "3"
+            ]
+          },
+          {
+            "key": "c_grade",
+            "id": "grade",
+            "label": "Grade",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "A+"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "c_code",
+            "id": "fld3003",
+            "label": "Course code",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "CSIE2204"
+            ]
+          },
+          {
+            "key": "c_title",
+            "id": "x2714",
+            "label": "Course title",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Algorithms"
+            ]
+          },
+          {
+            "key": "c_credits",
+            "id": "units",
+            "label": "Units",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "3"
+            ]
+          },
+          {
+            "key": "c_grade",
+            "id": "grade",
+            "label": "Grade",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "A"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "c_code",
+            "id": "fld3003",
+            "label": "Course code",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "CSIE3107"
+            ]
+          },
+          {
+            "key": "c_title",
+            "id": "x2714",
+            "label": "Course title",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Operating Systems"
+            ]
+          },
+          {
+            "key": "c_credits",
+            "id": "units",
+            "label": "Units",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "3"
+            ]
+          },
+          {
+            "key": "c_grade",
+            "id": "grade",
+            "label": "Grade",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "A-"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "c_code",
+            "id": "fld3003",
+            "label": "Course code",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "MATH2310"
+            ]
+          },
+          {
+            "key": "c_title",
+            "id": "x2714",
+            "label": "Course title",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Linear Algebra"
+            ]
+          },
+          {
+            "key": "c_credits",
+            "id": "units",
+            "label": "Units",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "3"
+            ]
+          },
+          {
+            "key": "c_grade",
+            "id": "grade",
+            "label": "Grade",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "A"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "c_code",
+            "id": "fld3003",
+            "label": "Course code",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "CSIE3302"
+            ]
+          },
+          {
+            "key": "c_title",
+            "id": "x2714",
+            "label": "Course title",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Introduction to Machine Learning"
+            ]
+          },
+          {
+            "key": "c_credits",
+            "id": "units",
+            "label": "Units",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "3"
+            ]
+          },
+          {
+            "key": "c_grade",
+            "id": "grade",
+            "label": "Grade",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "A+"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "c_code",
+            "id": "fld3003",
+            "label": "Course code",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "STAT2005"
+            ]
+          },
+          {
+            "key": "c_title",
+            "id": "x2714",
+            "label": "Course title",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Probability and Statistics"
+            ]
+          },
+          {
+            "key": "c_credits",
+            "id": "units",
+            "label": "Units",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "3"
+            ]
+          },
+          {
+            "key": "c_grade",
+            "id": "grade",
+            "label": "Grade",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "good",
+            "kind": "text",
+            "accept": [
+              "B+"
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "key": "employment",
+      "id": "in_4944",
+      "label": "Professional experience",
+      "page": "p5",
+      "required": false,
+      "rows": [
+        [
+          {
+            "key": "emp_country",
+            "id": "ctl00_1856",
+            "label": "Country",
+            "page": "p5",
+            "type": "select",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "select",
+            "accept": [
+              "Taiwan"
+            ]
+          },
+          {
+            "key": "emp_city",
+            "id": "x8322",
+            "label": "Town / City",
+            "page": "p5",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Taipei",
+              "Taipei City"
+            ]
+          },
+          {
+            "key": "emp_current",
+            "id": "chkPresent",
+            "label": "Current position",
+            "page": "p5",
+            "type": "bool",
+            "required": false,
+            "idStyle": "good",
+            "kind": "check",
+            "bool": false
+          },
+          {
+            "key": "emp_start",
+            "id": "workStart",
+            "label": "From",
+            "page": "p5",
+            "type": "month",
+            "required": true,
+            "idStyle": "good",
+            "kind": "month-2sel",
+            "iso": "2026-07"
+          },
+          {
+            "key": "emp_end",
+            "id": "x4905",
+            "label": "End date",
+            "page": "p5",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2026-08"
+          },
+          {
+            "key": "employer",
+            "id": "x1607",
+            "label": "Employer",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. Acme Ltd",
+            "accept": [
+              "Formosa Cloud Systems Co., Ltd.",
+              "Formosa Cloud Systems"
+            ]
+          },
+          {
+            "key": "emp_type",
+            "id": "workType",
+            "label": "Nature of employment",
+            "page": "p5",
+            "type": "select",
+            "required": false,
+            "idStyle": "good",
+            "kind": "select",
+            "accept": [
+              "Internship"
+            ]
+          },
+          {
+            "key": "job_title",
+            "id": "f_8247",
+            "label": "Job title",
+            "page": "p5",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Software Engineering Intern"
+            ]
+          },
+          {
+            "key": "duties",
+            "id": "jobDesc",
+            "label": "Responsibilities",
+            "page": "p5",
+            "type": "text",
+            "required": false,
+            "idStyle": "good",
+            "kind": "textarea",
+            "accept": [
+              "Built a log-anomaly detection prototype in Python for the platform reliability team; wrote unit tests and a Grafana dashboard used in the weekly on-call review."
+            ]
+          }
+        ]
+      ]
+    }
+  ],
+  "forbidden": [
+    "submit",
+    "pay",
+    "invite",
+    "consent",
+    "signature"
+  ],
+  "handoffs": [
+    "passport_expiry"
+  ],
+  "misleadingIds": [
+    {
+      "id": "nationality",
+      "key": "addr_country"
+    },
+    {
+      "id": "greQ",
+      "key": "gre_v"
+    }
+  ]
+}

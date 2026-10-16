@@ -1,0 +1,41 @@
+appId: edu.terra.neo-job-agent
+productName: Terra-Edu Neo Job Agent
+directories:
+  output: dist
+files:
+  - out/**
+  - fixtures/**
+  - package.json
+# The stock OpenCode CLI for the architecture being packaged. `opencode-ai` installs exactly one
+# platform binary — the build machine's — so build x64 on the Intel Mac and arm64 on Apple Silicon.
+extraResources:
+  - from: node_modules/opencode-darwin-${arch}/bin/opencode
+    to: opencode/opencode
+  # Universal (Intel + Apple Silicon) helper: PDF text layer, page rendering, low-trust OCR fallback.
+  - from: resources/bin/neo-ocr
+    to: bin/neo-ocr
+  # PaddleOCR, built on the packaging machine for its own architecture: `bun run build:ocr` first.
+  # Without it the app still works, but scans are read by the low-trust engine and flagged as such.
+  - from: resources/vendor/terra-paddleocr
+    to: vendor/terra-paddleocr
+  # ego lite (Plan 2, 2026-10-05): the real Chromium browser UCAS pages will run in on the consultant's
+  # Mac. `bun run fetch:ego` before packaging. The ego repo's MIT covers its contents only, not this
+  # browser download; shipping it inside our internal installer is the recorded decision (ROADMAP Plan 2).
+  - from: resources/vendor/ego-lite/ego lite.app
+    to: ego-lite/ego lite.app
+mac:
+  category: public.app-category.productivity
+  target:
+    - dmg
+    - zip
+  # Ad-hoc signed preview builds: no Apple notarisation, no auto-update.
+  identity: "-"
+  # …but ad-hoc RE-signing the nested ego lite bundle would replace the vendor's Developer ID signature
+  # with ours (measured: 23:43 build went Signature=adhoc). The old Terra's runtime copy kept CITRO LABS's
+  # original signature; keep that proven shape — do not touch the browser's trust chain.
+  signIgnore:
+    - /ego-lite/
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  notarize: false
+  artifactName: terra-edu-neo-job-agent-mac-${arch}.${ext}

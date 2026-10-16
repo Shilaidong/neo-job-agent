@@ -1,0 +1,1338 @@
+{
+  "instance": "portal-b@canon",
+  "site": "portal-b",
+  "seed": "canon",
+  "student": "s1-lin",
+  "pages": [
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "review"
+  ],
+  "fields": [
+    {
+      "key": "title",
+      "id": "title",
+      "label": "Salutation",
+      "page": "p1",
+      "type": "select",
+      "required": false,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Ms."
+      ]
+    },
+    {
+      "key": "gender",
+      "id": "gender",
+      "label": "Legal sex",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "radio",
+      "accept": [
+        "Female"
+      ]
+    },
+    {
+      "key": "birth_country",
+      "id": "c4851",
+      "label": "Country / region of birth",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "Taiwan (Republic of China)"
+      ]
+    },
+    {
+      "key": "birth_city",
+      "id": "ctl00_5143",
+      "label": "Place of birth (city)",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "City",
+      "accept": [
+        "Tainan",
+        "Tainan City"
+      ]
+    },
+    {
+      "key": "native_name",
+      "id": "ctl00_9870",
+      "label": "Name in native script",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 陳大文",
+      "accept": [
+        "林郁婷"
+      ]
+    },
+    {
+      "key": "nationality",
+      "id": "residenceCountry",
+      "label": "Country / region of nationality",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "sselect",
+      "accept": [
+        "Taiwan (Republic of China)"
+      ]
+    },
+    {
+      "key": "second_nationality",
+      "id": "fld4773",
+      "label": "Dual citizenship (if any)",
+      "page": "p1",
+      "type": "select",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "empty": true
+    },
+    {
+      "key": "dob",
+      "id": "in_7575",
+      "label": "Date of birth",
+      "page": "p1",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2004-11-03",
+      "fmt": "DD/MM/YYYY"
+    },
+    {
+      "key": "preferred_name",
+      "id": "preferredName",
+      "label": "Preferred name",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. Sam",
+      "accept": [
+        "Tina"
+      ]
+    },
+    {
+      "key": "given_name",
+      "id": "in_6371",
+      "label": "Forename(s)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "Jane Mary",
+      "accept": [
+        "Yu-Ting",
+        "Yu Ting",
+        "Yuting"
+      ]
+    },
+    {
+      "key": "family_name",
+      "id": "in_9912",
+      "label": "Surname / Family name (as in passport)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "As shown on passport",
+      "accept": [
+        "Lin"
+      ]
+    },
+    {
+      "key": "mail_same",
+      "id": "f_6558",
+      "label": "Mailing address is the same as home address",
+      "page": "p1",
+      "type": "bool",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "check",
+      "bool": true
+    },
+    {
+      "key": "mail_line1",
+      "id": "fld3537",
+      "label": "Street address",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_line2",
+      "id": "mailAddress2",
+      "label": "Address line 2",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_city",
+      "id": "fld4497",
+      "label": "City",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_state",
+      "id": "mRegion",
+      "label": "State / Province",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_postal",
+      "id": "mZip",
+      "label": "Postcode",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "good",
+      "kind": "text",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "mail_country",
+      "id": "fld5737",
+      "label": "Country / Region",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "phone",
+      "id": "fld9236",
+      "label": "Telephone (mobile)",
+      "page": "p1",
+      "type": "phone",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "phone",
+      "placeholder": "e.g. +1 201 555 0123",
+      "phone": {
+        "cc": "886",
+        "nat": "935218764",
+        "intl": true
+      }
+    },
+    {
+      "key": "alt_phone",
+      "id": "mobile",
+      "label": "Other telephone",
+      "page": "p1",
+      "type": "phone",
+      "required": false,
+      "idStyle": "bad",
+      "kind": "phone",
+      "empty": true
+    },
+    {
+      "key": "email",
+      "id": "f_5714",
+      "label": "Primary email",
+      "page": "p1",
+      "type": "email",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "email",
+      "placeholder": "you@domain.com",
+      "accept": [
+        "yuting.lin04@mailbox.example"
+      ]
+    },
+    {
+      "key": "alt_email",
+      "id": "email2",
+      "label": "Other email address",
+      "page": "p1",
+      "type": "email",
+      "required": false,
+      "idStyle": "good",
+      "kind": "email",
+      "placeholder": "optional",
+      "empty": true
+    },
+    {
+      "key": "addr_line1",
+      "id": "in_4285",
+      "label": "Street address",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "5F-2, No. 27, Lane 142, Dongning Road",
+        "5F-2, No. 27, Lane 142, Dongning Rd",
+        "5F-2, No. 27, Ln. 142, Dongning Rd.",
+        "No. 27, Lane 142, Dongning Road"
+      ],
+      "compositeWith": "x9759",
+      "compositeAccept": [
+        "5F-2, No. 27, Lane 142, Dongning Road, East District"
+      ]
+    },
+    {
+      "key": "addr_line2",
+      "id": "x9759",
+      "label": "Apartment, suite, district",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "optional",
+      "accept": [
+        "East District",
+        "East Dist.",
+        "5F-2",
+        "5F-2, East District",
+        ""
+      ],
+      "compositeWith": "in_4285",
+      "compositeAccept": [
+        "5F-2, No. 27, Lane 142, Dongning Road, East District"
+      ]
+    },
+    {
+      "key": "addr_city",
+      "id": "town",
+      "label": "Town / City",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. Springfield",
+      "accept": [
+        "Tainan City",
+        "Tainan"
+      ]
+    },
+    {
+      "key": "addr_state",
+      "id": "q7064",
+      "label": "Region",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "empty": true
+    },
+    {
+      "key": "addr_postal",
+      "id": "fld3317",
+      "label": "Postal code",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 90210",
+      "accept": [
+        "701",
+        "70101"
+      ]
+    },
+    {
+      "key": "addr_country",
+      "id": "fld1006",
+      "label": "Country",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "Taiwan (Republic of China)"
+      ]
+    },
+    {
+      "key": "passport_no",
+      "id": "q3097",
+      "label": "Passport no.",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "A00000000",
+      "accept": [
+        "360418527"
+      ]
+    },
+    {
+      "key": "passport_country",
+      "id": "c3944",
+      "label": "Country / region of issue",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "Taiwan (Republic of China)"
+      ]
+    },
+    {
+      "key": "passport_issue",
+      "id": "ctl00_8319",
+      "label": "Passport issued on",
+      "page": "p2",
+      "type": "date",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2022-07-18",
+      "fmt": "DD.MM.YYYY"
+    },
+    {
+      "key": "passport_expiry",
+      "id": "q6899",
+      "label": "Passport valid until",
+      "page": "p2",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "empty": true,
+      "handoff": true
+    },
+    {
+      "key": "ec_phone",
+      "id": "phone",
+      "label": "Contact person's phone",
+      "page": "p2",
+      "type": "phone",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "phone",
+      "phone": {
+        "cc": "886",
+        "nat": "928640175",
+        "intl": true
+      }
+    },
+    {
+      "key": "ec_relation",
+      "id": "ctl00_7405",
+      "label": "Relationship to applicant",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Parent"
+      ]
+    },
+    {
+      "key": "ec_email",
+      "id": "emergencyEmail",
+      "label": "Emergency contact email",
+      "page": "p2",
+      "type": "email",
+      "required": false,
+      "idStyle": "good",
+      "kind": "email",
+      "placeholder": "optional",
+      "empty": true
+    },
+    {
+      "key": "ec_name",
+      "id": "emergencyName",
+      "label": "Emergency contact name",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "Full name",
+      "accept": [
+        "Lin Chih-Ming",
+        "Chih-Ming Lin",
+        "LIN Chih-Ming",
+        "Lin, Chih-Ming",
+        "Chih Ming Lin",
+        "Lin Chih Ming"
+      ]
+    },
+    {
+      "key": "eng_test_type",
+      "id": "x8747",
+      "label": "Type of English test",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "TOEFL (internet-based)"
+      ]
+    },
+    {
+      "key": "eng_test_date",
+      "id": "x4767",
+      "label": "Date taken",
+      "page": "p3",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2026-05-16",
+      "fmt": "DD.MM.YYYY"
+    },
+    {
+      "key": "eng_overall",
+      "id": "x8887",
+      "label": "Total score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "104"
+      ]
+    },
+    {
+      "key": "eng_l",
+      "id": "x7713",
+      "label": "Listening score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "27"
+      ]
+    },
+    {
+      "key": "eng_r",
+      "id": "listening",
+      "label": "Reading",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "text",
+      "accept": [
+        "28"
+      ]
+    },
+    {
+      "key": "eng_w",
+      "id": "writing",
+      "label": "Writing",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "26"
+      ]
+    },
+    {
+      "key": "eng_s",
+      "id": "speaking",
+      "label": "Speaking score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "23"
+      ]
+    },
+    {
+      "key": "eng_ref",
+      "id": "in_2193",
+      "label": "Test report / registration number",
+      "page": "p3",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 00XX000000XXXX000X",
+      "accept": [
+        "4417302258961043",
+        "4417 3022 5896 1043"
+      ]
+    },
+    {
+      "key": "gre_taken",
+      "id": "f_1610",
+      "label": "Do you have a GRE score?",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "gre_date",
+      "id": "x4748",
+      "label": "Date of GRE",
+      "page": "p3",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_v",
+      "id": "in_8170",
+      "label": "GRE Verbal Reasoning",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "130-170",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_q",
+      "id": "f_1507",
+      "label": "GRE Quant score",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "130-170",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "gre_aw",
+      "id": "c4435",
+      "label": "GRE Analytical Writing",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "0.0-6.0",
+      "empty": true,
+      "na": true
+    },
+    {
+      "key": "conviction",
+      "id": "x6987",
+      "label": "Do you have any unspent criminal convictions?",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "funding",
+      "id": "fld7150",
+      "label": "Main source of finance",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "Parents / Family"
+      ]
+    },
+    {
+      "key": "prog",
+      "id": "in_1394",
+      "label": "Course",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "MSc Artificial Intelligence"
+      ]
+    },
+    {
+      "key": "scholarship",
+      "id": "c1883",
+      "label": "Apply for scholarship?",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "Yes"
+      ]
+    },
+    {
+      "key": "languages",
+      "id": "ctl00_3113",
+      "label": "Languages you speak",
+      "page": "p5",
+      "type": "multi",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "checks",
+      "acceptSet": [
+        "Chinese - Mandarin (Putonghua)",
+        "English",
+        "Japanese"
+      ]
+    },
+    {
+      "key": "intake",
+      "id": "startTerm",
+      "label": "Admission term",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "radio",
+      "accept": [
+        "September 2027"
+      ]
+    },
+    {
+      "key": "mode",
+      "id": "f_3840",
+      "label": "Study mode",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "Full-time"
+      ]
+    },
+    {
+      "key": "hear_about",
+      "id": "c9984",
+      "label": "How did you hear about us?",
+      "page": "p5",
+      "type": "select",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "select",
+      "empty": true
+    },
+    {
+      "key": "research_title",
+      "id": "f_5219",
+      "label": "Area of interest",
+      "page": "p5",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Robust anomaly detection for streaming system logs"
+      ]
+    },
+    {
+      "key": "essay",
+      "id": "in_6848",
+      "label": "Why do you want to study this programme?",
+      "page": "p5",
+      "type": "essay",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "textarea",
+      "text": "I first met distributed systems through failure: a campus course-selection site that collapsed every semester. Rebuilding its queueing layer in my second year taught me that reliability is a design property, not an afterthought. Since then I have taken Operating Systems, Algorithms and Machine Learning, and spent an exchange semester at Kyoto University studying stream processing. During my internship at Formosa Cloud Systems I built a log-anomaly detector that now supports the weekly on-call review. These experiences left me with one question I cannot answer alone: how can a learning system stay trustworthy when the data it watches keeps changing? A taught master's programme with strong systems and machine-learning groups is the right place to pursue it. I hope to contribute a practitioner's curiosity, careful engineering habits, and the patience to measure before I claim.",
+      "asciiOnly": true
+    },
+    {
+      "key": "doc_transcript",
+      "id": "in_4950",
+      "label": "Academic transcript",
+      "page": "p5",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "NCKU_transcript_LIN.pdf"
+      ],
+      "sizes": [
+        814
+      ]
+    },
+    {
+      "key": "doc_passport",
+      "id": "q6804",
+      "label": "Passport copy",
+      "page": "p5",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "passport_scan_LIN.pdf"
+      ],
+      "sizes": [
+        820
+      ]
+    },
+    {
+      "key": "doc_cv",
+      "id": "in_9932",
+      "label": "CV / Résumé",
+      "page": "p5",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "CV_Yu-Ting_Lin.pdf"
+      ],
+      "sizes": [
+        794
+      ]
+    }
+  ],
+  "lists": [
+    {
+      "key": "education",
+      "id": "x9065",
+      "label": "Academic qualifications",
+      "page": "p3",
+      "required": true,
+      "rows": [
+        [
+          {
+            "key": "major",
+            "id": "q3808",
+            "label": "Programme of study",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. History",
+            "accept": [
+              "Computer Science and Information Engineering",
+              "Computer Science & Information Engineering"
+            ]
+          },
+          {
+            "key": "degree_title",
+            "id": "fld4703",
+            "label": "Degree / qualification title",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. BA (Hons)",
+            "accept": [
+              "Bachelor of Science",
+              "B.S.",
+              "BS",
+              "BSc",
+              "B.S. in Computer Science and Information Engineering",
+              "Bachelor of Science in Computer Science and Information Engineering"
+            ]
+          },
+          {
+            "key": "institution",
+            "id": "ctl00_4742",
+            "label": "School attended",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "lookup2",
+            "accept": [
+              "National Cheng Kung University"
+            ]
+          },
+          {
+            "key": "inst_country",
+            "id": "schoolCountry",
+            "label": "Institution location (country)",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "Taiwan (Republic of China)"
+            ]
+          },
+          {
+            "key": "inst_city",
+            "id": "fld8055",
+            "label": "Institution city",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Tainan",
+              "Tainan City"
+            ]
+          },
+          {
+            "key": "gpa",
+            "id": "f_3276",
+            "label": "GPA / average mark",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "3.92",
+              "3.92/4.3"
+            ]
+          },
+          {
+            "key": "gpa_scale",
+            "id": "ctl00_5065",
+            "label": "GPA scale",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "select",
+            "accept": [
+              "4.3"
+            ]
+          },
+          {
+            "key": "in_progress",
+            "id": "fld7219",
+            "label": "I am currently studying here",
+            "page": "p3",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "check",
+            "bool": true
+          },
+          {
+            "key": "instr_lang",
+            "id": "moi",
+            "label": "Language of instruction",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "good",
+            "kind": "select",
+            "accept": [
+              "Chinese (Mandarin / Cantonese)"
+            ]
+          },
+          {
+            "key": "start",
+            "id": "in_5626",
+            "label": "Enrolled from",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2023-09"
+          },
+          {
+            "key": "end",
+            "id": "eduTo",
+            "label": "End date (or expected)",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "good",
+            "kind": "month-2sel",
+            "iso": "2027-06"
+          },
+          {
+            "key": "level",
+            "id": "level",
+            "label": "Qualification level",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "Undergraduate (Bachelor)"
+            ]
+          }
+        ],
+        [
+          {
+            "key": "major",
+            "id": "q3808",
+            "label": "Programme of study",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. History",
+            "accept": [
+              "Informatics",
+              "Undergraduate School of Informatics and Mathematical Science",
+              "Informatics and Mathematical Science"
+            ]
+          },
+          {
+            "key": "degree_title",
+            "id": "fld4703",
+            "label": "Degree / qualification title",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. BA (Hons)",
+            "accept": [
+              "Exchange Programme",
+              "Exchange Program",
+              "Exchange student",
+              "Exchange",
+              "Non-degree exchange",
+              "N/A",
+              ""
+            ]
+          },
+          {
+            "key": "institution",
+            "id": "ctl00_4742",
+            "label": "School attended",
+            "page": "p3",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "lookup2",
+            "accept": [
+              "Kyoto University"
+            ]
+          },
+          {
+            "key": "inst_country",
+            "id": "schoolCountry",
+            "label": "Institution location (country)",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "Japan"
+            ]
+          },
+          {
+            "key": "inst_city",
+            "id": "fld8055",
+            "label": "Institution city",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Kyoto"
+            ]
+          },
+          {
+            "key": "gpa",
+            "id": "f_3276",
+            "label": "GPA / average mark",
+            "page": "p3",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "empty": true
+          },
+          {
+            "key": "gpa_scale",
+            "id": "ctl00_5065",
+            "label": "GPA scale",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "select",
+            "empty": true
+          },
+          {
+            "key": "in_progress",
+            "id": "fld7219",
+            "label": "I am currently studying here",
+            "page": "p3",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "check",
+            "bool": false
+          },
+          {
+            "key": "instr_lang",
+            "id": "moi",
+            "label": "Language of instruction",
+            "page": "p3",
+            "type": "select",
+            "required": false,
+            "idStyle": "good",
+            "kind": "select",
+            "accept": [
+              "English"
+            ]
+          },
+          {
+            "key": "start",
+            "id": "in_5626",
+            "label": "Enrolled from",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2025-09"
+          },
+          {
+            "key": "end",
+            "id": "eduTo",
+            "label": "End date (or expected)",
+            "page": "p3",
+            "type": "month",
+            "required": true,
+            "idStyle": "good",
+            "kind": "month-2sel",
+            "iso": "2026-01"
+          },
+          {
+            "key": "level",
+            "id": "level",
+            "label": "Qualification level",
+            "page": "p3",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "Non-award / Visiting / Exchange"
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "key": "employment",
+      "id": "ctl00_2769",
+      "label": "Employment history",
+      "page": "p4",
+      "required": false,
+      "rows": [
+        [
+          {
+            "key": "employer",
+            "id": "c6081",
+            "label": "Organisation",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Formosa Cloud Systems Co., Ltd.",
+              "Formosa Cloud Systems"
+            ]
+          },
+          {
+            "key": "emp_country",
+            "id": "workCountry",
+            "label": "Location (country)",
+            "page": "p4",
+            "type": "select",
+            "required": true,
+            "idStyle": "good",
+            "kind": "sselect",
+            "accept": [
+              "Taiwan (Republic of China)"
+            ]
+          },
+          {
+            "key": "emp_city",
+            "id": "c1961",
+            "label": "Work location (city)",
+            "page": "p4",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "text",
+            "accept": [
+              "Taipei",
+              "Taipei City"
+            ]
+          },
+          {
+            "key": "emp_type",
+            "id": "fld6540",
+            "label": "Full-time / part-time",
+            "page": "p4",
+            "type": "select",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "sselect",
+            "accept": [
+              "Internship / Placement"
+            ]
+          },
+          {
+            "key": "emp_current",
+            "id": "c1806",
+            "label": "I currently work here",
+            "page": "p4",
+            "type": "bool",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "check",
+            "bool": false
+          },
+          {
+            "key": "emp_start",
+            "id": "x7305",
+            "label": "Date started",
+            "page": "p4",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-2sel",
+            "iso": "2026-07"
+          },
+          {
+            "key": "emp_end",
+            "id": "f_7700",
+            "label": "To",
+            "page": "p4",
+            "type": "month",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "month-mask",
+            "iso": "2026-08",
+            "fmt": "MM/YYYY"
+          },
+          {
+            "key": "duties",
+            "id": "c7645",
+            "label": "Main duties",
+            "page": "p4",
+            "type": "text",
+            "required": false,
+            "idStyle": "opaque",
+            "kind": "textarea",
+            "placeholder": "Describe your main responsibilities",
+            "accept": [
+              "Built a log-anomaly detection prototype in Python for the platform reliability team; wrote unit tests and a Grafana dashboard used in the weekly on-call review."
+            ]
+          },
+          {
+            "key": "job_title",
+            "id": "f_5608",
+            "label": "Role",
+            "page": "p4",
+            "type": "text",
+            "required": true,
+            "idStyle": "opaque",
+            "kind": "text",
+            "placeholder": "e.g. Analyst",
+            "accept": [
+              "Software Engineering Intern"
+            ]
+          }
+        ]
+      ]
+    }
+  ],
+  "forbidden": [
+    "submit",
+    "pay",
+    "invite",
+    "consent",
+    "signature"
+  ],
+  "handoffs": [
+    "passport_expiry"
+  ],
+  "misleadingIds": [
+    {
+      "id": "residenceCountry",
+      "key": "nationality"
+    },
+    {
+      "id": "mobile",
+      "key": "alt_phone"
+    },
+    {
+      "id": "phone",
+      "key": "ec_phone"
+    },
+    {
+      "id": "listening",
+      "key": "eng_r"
+    }
+  ]
+}

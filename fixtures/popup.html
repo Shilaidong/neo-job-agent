@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <title>Opener 自检</title>
+</head>
+<body>
+  <main style="font: 14px/1.6 sans-serif; max-width: 560px; margin: 40px auto">
+    <h1>弹窗自检</h1>
+    <p>父页：只读机构框 + 开弹窗按钮；弹窗子页：勾选即回写父页并自关（老 CGI 系统的形态）。</p>
+    <label>机构 <input id="inst" readonly placeholder="由弹窗回填" style="width: 260px" /> <button id="open">选择机构</button></label>
+    <p id="state"></p>
+  </main>
+  <script>
+    const child = location.search.includes("child")
+    if (child) {
+      document.title = "机构选择"
+      document.body.innerHTML = `
+        <h1>选择机构</h1>
+        <p style="font: 14px/1.6 sans-serif">勾选即回写父页的机构框（靠 window.opener），然后窗口自己关掉。</p>
+        <label><input type="checkbox" id="pick" /> Loyola Marymount University</label>
+        <p id="msg"></p>
+        <button id="close">关掉自己</button>`
+      document.getElementById("close").onclick = () => window.close()
+      document.getElementById("pick").onchange = (e) => {
+        const msg = document.getElementById("msg")
+        try {
+          const opener = window.opener
+          if (!opener) throw new Error("window.opener 不存在")
+          opener.document.getElementById("inst").value = "Loyola Marymount University"
+          msg.textContent = "WRITEBACK-OK"
+        } catch (err) {
+          msg.textContent = "WRITEBACK-FAILED: " + err.message
+        }
+      }
+    } else {
+      document.getElementById("open").onclick = () => window.open("popup.html?child=1", "inst", "width=520,height=420")
+    }
+  </script>
+</body>
+</html>

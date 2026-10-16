@@ -1,0 +1,755 @@
+{
+  "instance": "portal-e@canon",
+  "site": "portal-e",
+  "seed": "canon",
+  "student": "s3-zhuge",
+  "pages": [
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "review"
+  ],
+  "fields": [
+    {
+      "key": "nationality",
+      "id": "q3160",
+      "label": "Citizenship",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "Mainland China"
+      ]
+    },
+    {
+      "key": "birth_country",
+      "id": "countryOfBirth",
+      "label": "Country / region of birth",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Mainland China"
+      ]
+    },
+    {
+      "key": "birth_city",
+      "id": "ctl00_6462",
+      "label": "Place of birth (city)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. Lisbon",
+      "accept": [
+        "Wenzhou"
+      ]
+    },
+    {
+      "key": "dob",
+      "id": "ctl00_8586",
+      "label": "Date of birth",
+      "page": "p1",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2000-03-15",
+      "fmt": "DD/MM/YYYY"
+    },
+    {
+      "key": "gender",
+      "id": "in_9973",
+      "label": "Legal sex",
+      "page": "p1",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Man"
+      ]
+    },
+    {
+      "key": "family_name",
+      "id": "familyName",
+      "label": "Surname / Family name (as in passport)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. SMITH",
+      "accept": [
+        "Zhuge"
+      ]
+    },
+    {
+      "key": "given_name",
+      "id": "firstName",
+      "label": "Given name(s)",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "As shown on passport",
+      "accept": [
+        "Mingyuan",
+        "Ming Yuan",
+        "Ming-Yuan"
+      ]
+    },
+    {
+      "key": "passport_no",
+      "id": "nationalId",
+      "label": "Travel document number",
+      "page": "p1",
+      "type": "text",
+      "required": true,
+      "idStyle": "bad",
+      "kind": "text",
+      "placeholder": "e.g. X1234567",
+      "empty": true,
+      "handoff": true
+    },
+    {
+      "key": "passport_expiry",
+      "id": "c2772",
+      "label": "Passport expiry date",
+      "page": "p1",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-3sel",
+      "empty": true,
+      "handoff": true
+    },
+    {
+      "key": "native_name",
+      "id": "q4257",
+      "label": "Name in native script",
+      "page": "p1",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 陳大文",
+      "accept": [
+        "诸葛明远"
+      ]
+    },
+    {
+      "key": "title",
+      "id": "fld4169",
+      "label": "Prefix",
+      "page": "p1",
+      "type": "select",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "Mr"
+      ]
+    },
+    {
+      "key": "addr_line1",
+      "id": "address1",
+      "label": "Address line 1",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "e.g. 10 Downing Close",
+      "accept": [
+        "Room 1203, Building 7, Jinxiu Garden, 218 Wensan Road",
+        "Room 1203, Building 7, Jinxiu Garden",
+        "Room 1203, Building 7, Jinxiu Garden, No. 218 Wensan Road",
+        "218 Wensan Road, Xihu District"
+      ],
+      "compositeWith": "ctl00_5506",
+      "compositeAccept": [
+        "Room 1203, Building 7, Jinxiu Garden, 218 Wensan Road, Xihu District"
+      ]
+    },
+    {
+      "key": "addr_line2",
+      "id": "ctl00_5506",
+      "label": "Apartment, suite, district",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Xihu District",
+        "218 Wensan Road, Xihu District",
+        "218 Wensan Road",
+        "Room 1203, Building 7, Jinxiu Garden",
+        ""
+      ],
+      "compositeWith": "address1",
+      "compositeAccept": [
+        "Room 1203, Building 7, Jinxiu Garden, 218 Wensan Road, Xihu District"
+      ]
+    },
+    {
+      "key": "addr_city",
+      "id": "x8994",
+      "label": "Town / City",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. Springfield",
+      "accept": [
+        "Hangzhou"
+      ]
+    },
+    {
+      "key": "addr_state",
+      "id": "fld7386",
+      "label": "State / Province",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "if applicable",
+      "accept": [
+        "Zhejiang",
+        "Zhejiang Province"
+      ]
+    },
+    {
+      "key": "addr_postal",
+      "id": "fld3157",
+      "label": "Postcode",
+      "page": "p2",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "placeholder": "e.g. 90210",
+      "accept": [
+        "310012"
+      ]
+    },
+    {
+      "key": "addr_country",
+      "id": "countryOfResidence",
+      "label": "Country",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Mainland China"
+      ]
+    },
+    {
+      "key": "phone",
+      "id": "phone",
+      "label": "Telephone (mobile)",
+      "page": "p2",
+      "type": "phone",
+      "required": true,
+      "idStyle": "good",
+      "kind": "phone",
+      "phone": {
+        "cc": "86",
+        "nat": "15920874416",
+        "intl": true
+      }
+    },
+    {
+      "key": "email",
+      "id": "fld6263",
+      "label": "Email address",
+      "page": "p2",
+      "type": "email",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "email",
+      "placeholder": "you@domain.com",
+      "accept": [
+        "zhuge.mingyuan@mailhub.example"
+      ]
+    },
+    {
+      "key": "ec_name",
+      "id": "emergencyName",
+      "label": "Next of kin - full name",
+      "page": "p2",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "placeholder": "Full name",
+      "accept": [
+        "Zhuge Jianguo",
+        "Jianguo Zhuge",
+        "ZHUGE Jianguo",
+        "Zhuge, Jianguo"
+      ]
+    },
+    {
+      "key": "ec_relation",
+      "id": "nokRelationship",
+      "label": "Relationship to applicant",
+      "page": "p2",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Father"
+      ]
+    },
+    {
+      "key": "ec_phone",
+      "id": "x1333",
+      "label": "Contact person's phone",
+      "page": "p2",
+      "type": "phone",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "phone",
+      "placeholder": "incl. country code",
+      "phone": {
+        "cc": "86",
+        "nat": "13958872035",
+        "intl": true
+      }
+    },
+    {
+      "key": "gpa",
+      "id": "q9201",
+      "label": "Final grade / average",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "87.4",
+        "87.40",
+        "87.4/100"
+      ]
+    },
+    {
+      "key": "gpa_scale",
+      "id": "f_2502",
+      "label": "GPA scale",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Percentage (out of 100)"
+      ]
+    },
+    {
+      "key": "level",
+      "id": "qualLevel",
+      "label": "Level of study",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Bachelor's degree"
+      ]
+    },
+    {
+      "key": "start",
+      "id": "in_7170",
+      "label": "Date from",
+      "page": "p3",
+      "type": "month",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "month-mask",
+      "iso": "2018-09",
+      "fmt": "MM/YYYY"
+    },
+    {
+      "key": "end",
+      "id": "x8131",
+      "label": "End date (or expected)",
+      "page": "p3",
+      "type": "month",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "month-mask",
+      "iso": "2022-06",
+      "fmt": "MM/YYYY"
+    },
+    {
+      "key": "institution",
+      "id": "ctl00_9459",
+      "label": "School attended",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Hangzhou Dianzi University"
+      ]
+    },
+    {
+      "key": "inst_country",
+      "id": "q5739",
+      "label": "Country of institution",
+      "page": "p3",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Mainland China"
+      ]
+    },
+    {
+      "key": "major",
+      "id": "q8239",
+      "label": "Major / field of study",
+      "page": "p3",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Electronic Information Engineering"
+      ]
+    },
+    {
+      "key": "in_progress",
+      "id": "inProgress",
+      "label": "Still in progress",
+      "page": "p3",
+      "type": "bool",
+      "required": false,
+      "idStyle": "good",
+      "kind": "check",
+      "bool": false
+    },
+    {
+      "key": "eng_test_type",
+      "id": "in_9680",
+      "label": "English language test",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "IELTS Academic"
+      ]
+    },
+    {
+      "key": "eng_test_date",
+      "id": "testDate",
+      "label": "Test date",
+      "page": "p4",
+      "type": "date",
+      "required": true,
+      "idStyle": "good",
+      "kind": "date-mask",
+      "iso": "2026-03-07",
+      "fmt": "YYYY-MM-DD"
+    },
+    {
+      "key": "eng_overall",
+      "id": "in_7961",
+      "label": "Total score",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "7.0",
+        "7",
+        "7.00"
+      ]
+    },
+    {
+      "key": "eng_l",
+      "id": "fld6122",
+      "label": "Listening",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "7.5",
+        "7.50"
+      ]
+    },
+    {
+      "key": "eng_r",
+      "id": "x8223",
+      "label": "Reading",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "8.0",
+        "8",
+        "8.00"
+      ]
+    },
+    {
+      "key": "eng_w",
+      "id": "fld3440",
+      "label": "Writing score",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "6.0",
+        "6",
+        "6.00"
+      ]
+    },
+    {
+      "key": "eng_s",
+      "id": "speaking",
+      "label": "Speaking score",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "good",
+      "kind": "text",
+      "accept": [
+        "6.5",
+        "6.50"
+      ]
+    },
+    {
+      "key": "gre_taken",
+      "id": "f_4844",
+      "label": "GRE General Test taken?",
+      "page": "p4",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "Yes"
+      ]
+    },
+    {
+      "key": "gre_date",
+      "id": "x4226",
+      "label": "GRE taken on",
+      "page": "p4",
+      "type": "date",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "date-mask",
+      "iso": "2026-06-20",
+      "fmt": "YYYY-MM-DD"
+    },
+    {
+      "key": "gre_v",
+      "id": "x9858",
+      "label": "GRE Verbal Reasoning",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "157"
+      ]
+    },
+    {
+      "key": "gre_q",
+      "id": "fld8599",
+      "label": "GRE Quant score",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "169"
+      ]
+    },
+    {
+      "key": "gre_aw",
+      "id": "c1483",
+      "label": "GRE AWA score",
+      "page": "p4",
+      "type": "text",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "4.0",
+        "4",
+        "4.00"
+      ]
+    },
+    {
+      "key": "conviction",
+      "id": "q2502",
+      "label": "Criminal record",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "radio",
+      "accept": [
+        "No"
+      ]
+    },
+    {
+      "key": "intake",
+      "id": "in_8699",
+      "label": "Proposed start",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "September 2027"
+      ]
+    },
+    {
+      "key": "funding",
+      "id": "f_2632",
+      "label": "How will you fund your studies?",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "select",
+      "accept": [
+        "Self-funded"
+      ]
+    },
+    {
+      "key": "prog",
+      "id": "c6852",
+      "label": "Programme applied for",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "sselect",
+      "accept": [
+        "MSc Electrical and Electronic Engineering"
+      ]
+    },
+    {
+      "key": "mode",
+      "id": "studyMode",
+      "label": "Study mode",
+      "page": "p5",
+      "type": "select",
+      "required": true,
+      "idStyle": "good",
+      "kind": "select",
+      "accept": [
+        "Full-time"
+      ]
+    },
+    {
+      "key": "research_title",
+      "id": "x7553",
+      "label": "Area of interest",
+      "page": "p5",
+      "type": "text",
+      "required": false,
+      "idStyle": "opaque",
+      "kind": "text",
+      "accept": [
+        "Low-latency torque control for collaborative robot joints"
+      ]
+    },
+    {
+      "key": "essay",
+      "id": "fld2698",
+      "label": "Why do you want to study this programme?",
+      "page": "p5",
+      "type": "essay",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "rte",
+      "text": "For four years I have written the code that sits closest to the motor. At Lanhai Semiconductor I wrote driver firmware and a bootloader that shipped on three product lines; at Qiyuan I now lead firmware for a collaborative robot joint and cut the torque-loop latency from 1.2 ms to 0.4 ms. The work has been rewarding, but it has also shown me where my training stops. I can tune a controller, yet I cannot prove it is stable when the payload changes; I can filter a noisy encoder, yet I choose the filter by habit rather than by theory. I am applying for a master's degree to rebuild those foundations - modern control, estimation and robot dynamics - and to test them on real hardware. My goal is to return to industry able to design motion controllers that are safe by construction, not by luck."
+    },
+    {
+      "key": "doc_cv",
+      "id": "docCv",
+      "label": "Curriculum vitae",
+      "page": "p6",
+      "type": "file",
+      "required": true,
+      "idStyle": "good",
+      "kind": "file",
+      "names": [
+        "CV_Mingyuan_Zhuge.pdf"
+      ],
+      "sizes": [
+        797
+      ]
+    },
+    {
+      "key": "doc_transcript",
+      "id": "q8544",
+      "label": "Academic transcript",
+      "page": "p6",
+      "type": "file",
+      "required": true,
+      "idStyle": "opaque",
+      "kind": "file",
+      "names": [
+        "HDU_transcript_ZHUGE.pdf"
+      ],
+      "sizes": [
+        817
+      ]
+    }
+  ],
+  "lists": [],
+  "forbidden": [
+    "submit",
+    "pay",
+    "invite",
+    "consent",
+    "signature"
+  ],
+  "handoffs": [
+    "passport_no",
+    "passport_expiry"
+  ],
+  "misleadingIds": [
+    {
+      "id": "nationalId",
+      "key": "passport_no"
+    }
+  ]
+}

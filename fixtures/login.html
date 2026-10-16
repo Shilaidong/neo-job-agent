@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- A stand-in application-portal sign-in page, for the auto-login checks (docs/BROWSER.md「自动登录」):
+     the scripted three routes — accepted, password-rejected, and the one where the site asks for an emailed
+     code (the human step). The password it accepts is a fixture string, not anyone's secret. -->
+<meta charset="utf-8" />
+<title>Practice Portal — Sign in</title>
+<style>
+  body { font: 15px/1.6 -apple-system, "Helvetica Neue", sans-serif; background: #f8f9fa; color: #111; display: flex; justify-content: center; }
+  .box { max-width: 380px; margin: 80px auto; background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 28px 32px; }
+  h1 { font-size: 18px; margin: 0 0 14px; }
+  label { display: block; margin: 14px 0 4px; font-size: 13px; }
+  input { width: 100%; padding: 8px; font: inherit; box-sizing: border-box; }
+  button { margin-top: 18px; width: 100%; padding: 10px; font: inherit; }
+  #err { color: #b3261e; font-size: 13px; }
+  #code { border-top: 1px solid #eee; margin-top: 18px; padding-top: 14px; }
+</style>
+<div class="box">
+  <h1>Practice Portal</h1>
+  <form id="f" onsubmit="return go()">
+    <label for="u">Username or email</label>
+    <input id="u" name="username" autocomplete="username" />
+    <label for="pw">Password</label>
+    <input id="pw" name="password" type="password" autocomplete="current-password" />
+    <button type="submit" id="b">Log in</button>
+  </form>
+  <p id="err" hidden>Incorrect username or password.</p>
+  <div id="code" hidden>
+    <p>We emailed you a verification code. Enter it here to continue.</p>
+    <label for="vc">Verification code</label>
+    <input id="vc" name="code" />
+    <button type="button">Verify</button>
+  </div>
+</div>
+<script>
+  // The fixture's three routes, keyed by the password submitted.
+  function go() {
+    var pw = document.getElementById("pw").value
+    document.getElementById("err").hidden = true
+    document.getElementById("code").hidden = true
+    if (pw === "hunter2") {
+      document.body.innerHTML = '<div class="box"><h1>Welcome back</h1><p>Your applications: 1 draft, 0 submitted.</p></div>'
+      return false
+    }
+    if (pw === "smokepw4f9c") {
+      document.getElementById("code").hidden = false
+      return false
+    }
+    document.getElementById("err").hidden = false
+    return false
+  }
+</script>

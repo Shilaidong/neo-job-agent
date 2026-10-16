@@ -1,0 +1,16 @@
+body{font-family:Verdana,Arial,Helvetica,sans-serif;font-size:12px;color:#000;background:#e8e8e0;margin:0}
+.top{background:#003366;color:#fff}.top a{color:#fff}.logo{font-size:18px;font-weight:bold;font-family:Georgia,serif}
+.small{font-size:11px}.content{background:#fff;border:1px solid #999;padding:14px 18px}
+h1{font-size:17px;color:#003366;border-bottom:2px solid #cc9900;padding-bottom:4px;margin-top:0}
+h2{font-size:13px;background:#d6dde6;padding:4px 6px;margin:16px 0 6px}
+.nav{width:190px;background:#fff;border:1px solid #999}.nav td{border-bottom:1px solid #ddd}.nav td.cur{background:#ffeeaa;font-weight:bold}
+table.form td{vertical-align:top;border-bottom:1px dotted #ccc}td.lbl{width:24%;background:#f4f4ee;text-align:right;white-space:normal}
+td.sub{background:#003366;color:#fff;font-weight:bold}table.slot{margin-bottom:10px}
+table.grid th{background:#d6dde6;font-size:11px;text-align:left}table.grid td{border-bottom:1px dotted #ccc}
+input,select,textarea{font-family:Verdana,Arial,sans-serif;font-size:12px}
+.hint{color:#666;font-size:11px}.fmsg{color:#cc0000}.fst{font-size:11px}
+.errbox{border:2px solid #cc0000;background:#ffeeee;padding:8px;margin-bottom:10px}.errbox a{color:#cc0000}
+.savemsg{border:1px solid #339933;background:#eeffee;padding:6px;margin-bottom:10px}
+tr.rowerr td,td.rowerr{background:#ffdddd}
+.btns{margin-top:14px}.cap{border:1px solid #999;background:#fafafa;padding:10px;display:inline-block}
+.ann{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.4)}.annbox{width:420px;margin:120px auto;background:#ffffdd;border:2px solid #003366;padding:14px}
