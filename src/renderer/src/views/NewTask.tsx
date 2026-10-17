@@ -1,6 +1,6 @@
 import { createSignal, For, Show } from "solid-js"
 import { createStore } from "solid-js/store"
-import { JOB_TYPES, TASK_GOALS, type PlatformAccount, type Task, type TaskInput } from "../../../shared/tasks"
+import { JOB_TYPES, TASK_GOALS, type Task, type TaskInput } from "../../../shared/tasks"
 import { cleanIpcError } from "./Login"
 
 const neo = window.neo
@@ -22,13 +22,11 @@ export function NewTask(props: { onCancel: () => void; onCreated: (tasks: Task[]
     company: "",
     jobTitle: "",
     applicationUrl: "",
-    platformUsername: "",
     platformLogin: "",
     deadline: "",
     salary: "",
     notes: "",
   })
-  const [savedAccount, setSavedAccount] = createSignal<PlatformAccount | null>(null)
   const [busy, setBusy] = createSignal(false)
   const [error, setError] = createSignal("")
 
@@ -48,18 +46,6 @@ export function NewTask(props: { onCancel: () => void; onCreated: (tasks: Task[]
     const folder = await neo.pickFolder()
     if (folder) setInput("sourceFolder", folder)
   })
-
-  const recallAccount = async () => {
-    const url = input.applicationUrl?.trim()
-    const account = url ? await neo.getPlatformAccount(url).catch(() => null) : null
-    setSavedAccount(account)
-    if (account && !input.platformUsername) setInput("platformUsername", account.username)
-  }
-
-  const forgetAccount = async () => {
-    if (input.applicationUrl) await neo.clearPlatformAccount(input.applicationUrl)
-    setSavedAccount(null)
-  }
 
   const create = () => guard(async () => {
     const task = await neo.createTask({ ...input })
@@ -123,25 +109,11 @@ export function NewTask(props: { onCancel: () => void; onCreated: (tasks: Task[]
         </label>
         <label class="field">
           <span>投递/招聘页面链接</span>
-          <input value={input.applicationUrl ?? ""} placeholder="https://..." onInput={(e) => setInput("applicationUrl", e.currentTarget.value)} onBlur={recallAccount} />
+          <input value={input.applicationUrl ?? ""} placeholder="https://..." onInput={(e) => setInput("applicationUrl", e.currentTarget.value)} />
         </label>
-        <label class="field">
-          <span>平台账号（登录用的网站账号，密码不默认收集）</span>
-          <input value={input.platformUsername ?? ""} placeholder="登录邮箱/账号" onInput={(e) => setInput("platformUsername", e.currentTarget.value)} />
-        </label>
-        <div class="note wide">
-          <Show when={savedAccount()} fallback={<small>只记平台账号。需要自动登录的站，在下面「平台登录」框里整段贴一次即可；不贴的话，登录仍由你在左边的页面上自己完成，AI 停手等你。</small>}>
-            {(saved) => (
-              <small>
-                这个平台上次用的账号：<strong>{saved().username}</strong>
-                <button type="button" class="link" onClick={forgetAccount}>忘掉它</button>
-              </small>
-            )}
-          </Show>
-        </div>
         <Show when={input.allowAutoLogin}>
           <label class="field wide">
-            <span>平台登录（可选：整段贴这里，账号、密码、备注网站名，怎么写都行——软件不拆它，原样交给 AI 自己认）</span>
+            <span>平台登录（这一站全部的账号密码整段贴这里就够——手动填或问答填都行，可以带上网站备注；软件不拆它，原样交给 AI 自己认。存在本机加密存储里，不上传云端）</span>
             <textarea rows={2} placeholder="例：LinkedIn 账号 chen@example.com | 密码 Chloe123456!" value={input.platformLogin ?? ""} onInput={(e) => setInput("platformLogin", e.currentTarget.value)} />
           </label>
         </Show>
