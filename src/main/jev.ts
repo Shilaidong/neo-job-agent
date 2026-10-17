@@ -42,7 +42,8 @@ const gateway = gatewayBackend(() => loadKeys().gateway)
 
 const jev = createJev({
   log,
-  timeoutMs: Number(process.env.NEO_JEV_TIMEOUT_MS) || undefined,
+  // 2026-10-17 实测：局域网 Kev 答一页 52 个问题要 ~3.7s，Jev 默认 3s 会误杀。给足 10 秒；快的时候就还是快。
+  timeoutMs: Number(process.env.NEO_JEV_TIMEOUT_MS) || 10_000,
   backend: () => {
     if (scripted) return scripted
     if (process.env.NEO_JEV === "off") return undefined
