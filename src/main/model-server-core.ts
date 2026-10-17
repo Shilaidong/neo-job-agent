@@ -18,16 +18,18 @@ export type OwnModelConfig = {
   provider: {
     npm: "@ai-sdk/openai-compatible"
     name: string
-    options: { baseURL: string; apiKey: string }
+    options: { baseURL: string; apiKey: string; headerTimeout?: number; chunkTimeout?: number }
     models: Record<string, unknown>
   }
 }
 
 function providerConfig(o: { name: string; baseURL: string; apiKey?: string; model: string; sees: boolean; levels: string[]; context: number; output: number }) {
+  // A private server (LAN vLLM/halogen 这类) 出首包可以很慢：opencode 的内置 header/chunk 超时默认 300000ms，
+  // 大工具表 + 思考档下真会撞上（2026-10-17 真机实测：5 分钟超时重试）。留足 20 分钟余量，慢不影响成功。
   return {
     npm: "@ai-sdk/openai-compatible" as const,
     name: o.name,
-    options: { baseURL: o.baseURL, apiKey: o.apiKey?.trim() || "none" },
+    options: { baseURL: o.baseURL, apiKey: o.apiKey?.trim() || "none", headerTimeout: 1_200_000, chunkTimeout: 1_200_000 },
     models: {
       [o.model]: {
         name: o.model,

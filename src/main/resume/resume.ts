@@ -138,31 +138,82 @@ async function exportPdf(folder: string, root: string, track: string, name: stri
   return exported
 }
 
-/** Compile an existing LaTeX project folder (the resume_compile MCP tool's path). */
+/** Compile an existing LaTeX project folder (the resume_compile MCP tool's path).
+ *
+ *  The model speaks whatever it likes: the bare `resume/`, a named `resume/resume-<方向>-<姓名>`, the
+ *  workspace root itself. We find the student folder by walking UP to the first folder that carries a
+ *  student_profile.json / materials (2026-10-17 real-run fix: dirname() was one level too shallow, which
+ *  renamed the export "Resume_General_student.pdf" and dropped it under resume/resume/). No main.tex yet
+ *  means "please (re)generate": the project is put exactly where the model pointed.
+ */
 export async function compileFolder(folder: string): Promise<ResumeResult> {
   const engine = await findEngine()
   if (engine.kind === "none") throw new Error(`没有可用的 LaTeX 引擎：${engine.note}`)
   const dir = resolveInsideWorkspace(folder)
-  if (!existsSync(join(dir, "main.tex"))) {
-    const studentDir = dirname(dir)
-    const track = trackArg(basename(dir).startsWith("resume-") ? basename(dir).split("-")[1] : "general")
-    return generateResume(studentDir, track)
-  }
-  const logTail = await compileTex(engine, dir)
-  const studentDir = dirname(dir)
-  const track = trackArg(basename(dir).startsWith("resume-") ? basename(dir).split("-")[1] : "general")
-  const profile = await readProfile(studentDir).catch(() => ({} as Profile))
+  const root = workspacesRoot().replace(/\/+$/, "")
+  const studentDir = await findStudentDir(dir, root)
+  const rel = dir === studentDir ? "" : dir.slice(studentDir.length + 1)
+  const profile = await readProfile(studentDir)
+  const target = await readTarget(studentDir)
   const name = slugName(profile)
-  const root = await resumeDir(studentDir)
-  const exported = await exportPdf(dir, root, track, name)
-  log.info("resume project compiled", { dir, pdf: exported })
-  return { item: { studentDir, track, tex: join(dir, "main.tex"), pdf: join(dir, "main.pdf"), exported, updatedAt: new Date().toISOString() }, log: logTail }
+  let track = trackArg(trackFromFolderName(basename(dir)))
+  if (rel === "" || rel === "resume") track = suggestedTrack(target)
+
+  if (existsSync(join(dir, "main.tex"))) {
+    const logTail = await compileTex(engine, dir)
+    const resumeRoot = join(studentDir, "resume")
+    const exported = await exportPdf(dir, resumeRoot, track, name)
+    log.info("resume project compiled", { dir, pdf: exported })
+    return { item: { studentDir, track, tex: join(dir, "main.tex"), pdf: join(dir, "main.pdf"), exported, updatedAt: new Date().toISOString() }, log: logTail }
+  }
+
+  const where = rel && rel !== "resume" ? dir : join(studentDir, "resume", `resume-${track}-${name}`)
+  await mkdir(where, { recursive: true })
+  const tex = join(where, "main.tex")
+  await writeFile(tex, buildLatex(profile, target, track))
+  const logTail = await compileTex(engine, where)
+  const exported = await exportPdf(where, join(studentDir, "resume"), track, name)
+  log.info("resume bootstrapped", { where, pdf: exported })
+  return { item: { studentDir, track, tex, pdf: join(where, "main.pdf"), exported, updatedAt: new Date().toISOString() }, log: logTail }
 }
 
-/** Refuse paths outside any workspace — the MCP tool never compiles the consultant's own files. */
+/** Walk up from `dir` to the first folder that looks like a student workspace. */
+async function findStudentDir(dir: string, root: string): Promise<string> {
+  let p = dir
+  while (p.startsWith(root)) {
+    if (existsSync(join(p, "student_profile.json")) || existsSync(join(p, "materials"))) return p
+    const parent = dirname(p)
+    if (parent === p) break
+    p = parent
+  }
+  throw new Error("只能编译工作区里的简历文件夹。")
+}
+
+/** "resume-engineering-X" → "engineering"; anything else → general (the caller may override). */
+function trackFromFolderName(basename: string): string {
+  if (!basename.startsWith("resume-")) return "general"
+  const maybe = basename.split("-")[1]
+  return maybe ? trackArg(maybe) : "general"
+}
+
+/** When the model waved at `resume/` without a direction, guess one from the job target. */
+function suggestedTrack(target: JobTarget): ResumeTrack {
+  const blob = [...(target?.roles ?? []), ...(target?.roleKeywords ?? [])].join(" ").toLowerCase()
+  if (/(data|machine learning|analytics)/.test(blob)) return "data"
+  if (/(engineer|backend|frontend|software|develop)/.test(blob)) return "engineering"
+  if (/(marketing|brand|growth)/.test(blob)) return "marketing"
+  if (/(finance|quant|investment)/.test(blob)) return "finance"
+  if (/(accounting|audit)/.test(blob)) return "accounting"
+  return "general"
+}
+
+/** Refuse paths outside any workspace — the MCP tool never compiles the consultant's own files.
+ *  The model speaks workspace-relative paths (that is what AGENTS.workspace.md tells it), so a relative
+ *  path is joined to the workspaces root before the guard (2026-10-17 real-run fix). */
 function resolveInsideWorkspace(folder: string): string {
-  const root = workspacesRoot()
-  const normalized = folder.replace(/\/+$/, "")
+  const root = workspacesRoot().replace(/\/+$/, "")
+  const input = folder.replace(/\/+$/, "")
+  const normalized = input.startsWith("/") ? input : join(root, input)
   if (normalized !== root && !normalized.startsWith(root + "/")) throw new Error("只能编译工作区里的简历文件夹。")
   return normalized
 }

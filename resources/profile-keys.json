@@ -59,9 +59,11 @@
     "files.portfolio": "Path of a portfolio / work sample in the workspace",
     "files.transcript": "Path of the academic transcript in the workspace",
     "job_target.roles": "Target role types, e.g. [\"数据科学实习\", \"数据分析暑期实习\"]",
-    "job_target.role_keywords": "Keyword tokens to match a posting's title/description, e.g. [\"data science\", \"machine learning\", \"data analyst\"]",
+    "job_target.role_keywords": "Keyword tokens to match a posting's title/description, e.g. [\"data science\", \"machine learning\", \"data analyst\"] — 应用两种写法都认（role_keywords / roleKeywords）",
     "job_target.companies": "Target / dream companies, if the student named any",
     "job_target.locations": "Target locations (countries/cities, e.g. [\"United States\", \"New York\", \"远程\"]",
-    "job_target.skills": "Skills the target roles need that the student has (used to rank matches)"
+    "job_target.skills": "Skills the target roles need that the student has (used to rank matches)",
+    "job_target.location_exclude": "排除地点, 应用两种写法都认 (location_exclude / locationExclude)",
+    "job_target.internships_only": "是否只要实习 (true/false), 应用两种写法都认 (internships_only / internshipsOnly)"
   }
 }

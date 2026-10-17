@@ -140,20 +140,26 @@ export function matchEntry(entry: JobEntry, target: JobTarget): JobMatchResult {
   const all = ` ${title} ${desc} `
   const reasons: string[] = []
   let score = 0
+  // Every array is optional at the type level (a hand-typed or AI-written target may leave one out).
+  const roleKeywords = target.roleKeywords ?? []
+  const companies = target.companies ?? []
+  const locations = target.locations ?? []
+  const locationExclude = target.locationExclude ?? []
+  const skills = target.skills ?? []
 
-  const roleHits = target.roleKeywords.filter((kw) => kw && title.includes(kw.trim().toLowerCase()))
+  const roleHits = roleKeywords.filter((kw) => kw && title.includes(kw.trim().toLowerCase()))
   if (roleHits.length) {
     score += Math.min(70, roleHits.length * 35)
     reasons.push(`标题命中：${roleHits.slice(0, 3).join("、")}`)
   } else {
-    const descHits = target.roleKeywords.filter((kw) => kw && all.includes(kw.trim().toLowerCase()))
+    const descHits = roleKeywords.filter((kw) => kw && all.includes(kw.trim().toLowerCase()))
     if (descHits.length) {
       score += Math.min(45, descHits.length * 15)
       reasons.push(`描述命中：${descHits.slice(0, 3).join("、")}`)
     }
   }
 
-  const companyHit = target.companies.find((c) => entry.company.trim().toLowerCase().includes(c.trim().toLowerCase()))
+  const companyHit = companies.find((c) => entry.company.trim().toLowerCase().includes(c.trim().toLowerCase()))
   if (companyHit) {
     score += 30
     reasons.push(`目标公司：${entry.company}`)
@@ -172,20 +178,20 @@ export function matchEntry(entry: JobEntry, target: JobTarget): JobMatchResult {
   }
 
   const loc = norm(entry.location)
-  if (target.locations.length) {
-    const hit = target.locations.find((l) => loc.includes(l.trim().toLowerCase()))
+  if (locations.length) {
+    const hit = locations.find((l) => loc.includes(l.trim().toLowerCase()))
     if (hit) {
       score += 25
       reasons.push(`地点符合：${hit}`)
     }
-    const bad = target.locationExclude.find((l) => loc.includes(l.trim().toLowerCase()))
+    const bad = locationExclude.find((l) => loc.includes(l.trim().toLowerCase()))
     if (bad) {
       score -= 100
       reasons.push(`排除地点：${bad}`)
     }
   }
 
-  const skillHits = target.skills.filter((s) => s && all.includes(s.toLowerCase().trim()))
+  const skillHits = skills.filter((s) => s && all.includes(s.toLowerCase().trim()))
   if (skillHits.length) {
     score += Math.min(25, skillHits.length * 6)
     if (skillHits.length >= 2) reasons.push(`技能命中：${skillHits.slice(0, 5).join("、")}`)

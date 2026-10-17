@@ -37,7 +37,7 @@ import { resolveCredentials } from "./browser/login-creds"
 import { getStudentMemo, setStudentMemo } from "./tasks/student-memo"
 import { countMaterials, createTask, getTask, listStudents, updateTask } from "./tasks/tasks"
 import { ensureWorkspace, writeGuide } from "./workspace"
-import { overview as feedOverview, runOnceNow, saveFeedSchedule, saveFeedSources, saveJobTarget, feedRunFinishedAt } from "./feed/feed"
+import { overview as feedOverview, runOnceNow, saveFeedSchedule, saveFeedSources, saveJobTarget, feedRunFinishedAt, listSources, feedForStudent, readJobTarget } from "./feed/feed"
 import { startFeedScheduler, type FeedScheduler } from "./feed/scheduler"
 import { findEngine as findResumeEngine, generateResume, invalidateEngine as invalidateResumeEngine, listResumes } from "./resume/resume"
 
@@ -67,7 +67,9 @@ const SMOKE = process.argv.includes("--smoke")
                       ? "feed"
                       : process.argv.includes("--smoke-resume")
                         ? "resume"
-                        : undefined
+                        : process.argv.includes("--run-real")
+                          ? "real"
+                          : undefined
 
 app.setName("Terra-Edu Neo Job Agent")
 const log = createLogger("app")
@@ -976,7 +978,7 @@ async function boot() {
       process.env.NEO_WORKSPACES_ROOT ||= join(app.getPath("temp"), "neo-app-agent-smoke")
       process.env.NEO_AUTH = "off"
       // Only the real-model runs talk to the real Jev; the rest script it, so they need no network and burn no quota.
-      if (SMOKE !== "e2e" && SMOKE !== "agent" && SMOKE !== "do" && SMOKE !== "run") process.env.NEO_JEV = "off"
+      if (SMOKE !== "e2e" && SMOKE !== "agent" && SMOKE !== "do" && SMOKE !== "run" && SMOKE !== "real") process.env.NEO_JEV = "off"
       return void exitApp(await runSelfTest())
     }
 
@@ -1007,6 +1009,7 @@ async function runSelfTest() {
   if (SMOKE === "tasks") return runTaskSmoke()
   if (SMOKE === "feed") return runFeedSmoke()
   if (SMOKE === "resume") return runResumeSmoke()
+  if (SMOKE === "real") return runReal()
   if (SMOKE === "materials") return runMaterialsSmoke(page.webContents)
   // A hidden WebContentsView swallows injected mouse events, so the page must be "on screen" like in a real task.
   state.view = "task"
@@ -1315,6 +1318,193 @@ async function runDoSmoke() {
   console.log(`\n最后停在：${page.webContents.getTitle()} · ${page.webContents.getURL().split(/[?#]/)[0]}`)
   console.log(`DO SMOKE FINISHED in ${((Date.now() - started) / 1000).toFixed(1)}s`)
   return 0
+}
+
+/**
+ * `NEO_REAL_FOLDER=<学生资料文件夹> NEO_REAL_STUDENT=<姓名> NEO_MODEL=own/... electron . --run-real`
+ * —— 一次真学生、真局域网 AI 的完整实测（窗口不弹）。走产品主流程：
+ *   建档案/求职目标 → 自动生成简历 → 岗位中心真抓取并画像匹配 → 针对头名岗位让模型定向改简历并重编译
+ *   → 打开真实招聘页自动填表（不提交：保留动作一律拒绝，无人会替学生按提交）。
+ * 邮箱等敏感问答自动回「材料里没有，先留空」；全程不对外发送、不付款。
+ */
+async function runReal() {
+  const { mkdir, writeFile, stat, readdir } = await import("node:fs/promises")
+  const out = process.env.NEO_REAL_OUT || join(app.getPath("temp"), "neo-real")
+  await mkdir(out, { recursive: true })
+  const folder = process.env.NEO_REAL_FOLDER!
+  const studentName = process.env.NEO_REAL_STUDENT || "Daniel Fang"
+
+  const results: Array<{ name: string; ok: boolean; detail: string }> = []
+  const check = (name: string, ok: boolean, detail = "") => {
+    results.push({ name, ok, detail })
+    console.log(`${ok ? "PASS" : "FAIL"}  ${name}${ok ? "" : `  ← ${detail.slice(0, 500)}`}`)
+  }
+  const stamp = () => `[${new Date().toISOString().slice(11, 19)}]`
+
+  /** One phase's watcher: drives until the model pauses (or the budget runs out); auto-answers questions. */
+  const waitIdle = (budgetMs: number, nudges: number) =>
+    new Promise<{ sawWork: boolean; tools: Record<string, number>; llmCalls: number; asked: string[]; failure: string }>((resolve) => {
+      const started = Date.now()
+      let sawWork = false
+      let llmCalls = 0
+      let failure = ""
+      const tools: Record<string, number> = {}
+      const asked: string[] = []
+      const tap = (evt: any) => {
+        const p = evt.properties ?? {}
+        const part = p.part
+        if (evt.type === "message.part.updated" && part?.type === "tool" && (part.state?.status === "completed" || part.state?.status === "error")) {
+          sawWork = true
+          tools[part.tool] = (tools[part.tool] ?? 0) + 1
+          console.log(`  ${stamp()} tool: ${part.tool} ${part.state.status}${part.state.status === "error" ? ` — ${String(part.state.error).slice(0, 140)}` : ""}`)
+        }
+        if (evt.type === "message.part.updated" && part?.type === "step-finish") llmCalls++
+        if (evt.type === "message.part.updated" && part?.type === "text" && part.time?.end && !part.synthetic) {
+          console.log(`  ${stamp()} AI: ${String(part.text).replace(/\s+/g, " ").slice(0, 200)}`)
+        }
+        if (evt.type === "question.asked") {
+          for (const q of p.questions ?? []) asked.push(String(q.question))
+          console.log(`  ${stamp()} AI asks: ${p.questions?.map((q: any) => q.question).join(" / ")}`)
+          const answers = (p.questions ?? []).map(() => ["这份材料里没有这一项，先留空，记进待顾问清单，其余照做。"])
+          void opencode!.client.question.reply({ requestID: p.id, answers }).catch(() => {})
+        }
+        if (evt.type === "session.error") failure = JSON.stringify(p.error).slice(0, 500)
+        if (!(evt.type === "session.idle" || failure) || (failure && !sawWork)) return
+        if (!failure && nudges-- > 0 && Date.now() - started < budgetMs) {
+          return void sendPrompt("先把能做完的全部做完：档案、求职目标、简历、该填的字段都弄好，最后一次性告诉我缺什么。").catch(() => {})
+        }
+        eventTaps.delete(tap)
+        resolve({ sawWork, tools, llmCalls, asked, failure })
+      }
+      eventTaps.add(tap)
+      setTimeout(() => {
+        eventTaps.delete(tap)
+        resolve({ sawWork, tools, llmCalls, asked, failure })
+      }, budgetMs)
+    })
+
+  const newestResumeUtc = async (dir: string): Promise<number> => {
+    let newest = 0
+    for (const name of await readdir(dir).catch(() => [])) {
+      const p = join(dir, name)
+      try {
+        if (name.endsWith(".tex") || name.endsWith(".pdf")) newest = Math.max(newest, (await stat(p)).mtimeMs)
+        else if (!name.includes(".")) newest = Math.max(newest, await newestResumeUtc(p))
+      } catch {
+        /* skip */
+      }
+    }
+    return newest
+  }
+
+  console.log(`\n===== REAL RUN · ${studentName} @ ${folder} =====`)
+  try {
+    check("学生资料文件夹可读", Boolean(folder && existsSync(folder)), folder)
+
+    // ----- Phase 1: 建档案 + 求职目标（AI 自动开工）-----
+    console.log(`\n--- Phase 1 · 建档案与求职目标（AI 自动开工）---`)
+    const task1 = await createTask({
+      studentName, sourceFolder: folder, jobType: "实习", taskGoal: "全流程投递",
+      outputLanguage: "zh", allowUpload: false,
+      company: "（档案搭建）", jobTitle: "求职档案与简历",
+    })
+    const studentDir = task1.studentDir
+    check("学生工作区已建、材料已拷入", existsSync(join(studentDir, "materials")), studentDir)
+
+    const p1 = waitIdle(Number(process.env.NEO_REAL_PHASE1_MS) || 30 * 60_000, 3)
+    await openTask(task1.taskDir).catch((e) => check("打开投递任务（自动开工）", false, String((e as Error)?.message ?? e)))
+    const r1 = await p1
+    check("Phase 1 · AI 写了答案库 student_profile.json", existsSync(join(studentDir, "student_profile.json")), r1.failure || "无档案")
+    check("Phase 1 · AI 写了求职目标 job_target.json", existsSync(join(studentDir, "job_target.json")), r1.failure || "无目标")
+    check("Phase 1 · 模型确实在干活", r1.sawWork, JSON.stringify(r1.tools))
+
+    // ----- Resume: 自动生成 LaTeX 简历 -----
+    console.log(`\n--- Resume · 自动生成 LaTeX 简历 ---`)
+    let exportedResumeUtc = 0
+    if (existsSync(join(studentDir, "student_profile.json"))) {
+      try {
+        const rr = await generateResume(studentDir, "engineering")
+        exportedResumeUtc = await newestResumeUtc(join(studentDir, "resume"))
+        check("自动生成 LaTeX 简历并导出 PDF", existsSync(rr.item.exported) && exportedResumeUtc > 0, rr.item.exported)
+      } catch (e) {
+        check("自动生成 LaTeX 简历并导出 PDF", false, String((e as Error)?.message ?? e).slice(0, 400))
+      }
+    } else check("自动生成 LaTeX 简历（缺档案，跳过）", false, "Phase 1 没产出 student_profile.json")
+
+    // ----- Phase 2: 岗位中心真抓取 + 画像匹配 -----
+    console.log(`\n--- Phase 2 · 岗位中心真抓取 + 画像匹配 ---`)
+    const srcs = listSources()
+    if (!srcs.some((s) => s.id === "gh-stripe")) srcs.push({ id: "gh-stripe", name: "Stripe（Greenhouse 板）", enabled: true, kind: "greenhouse", url: "stripe" })
+    if (!srcs.some((s) => s.id === "gh-datadog")) srcs.push({ id: "gh-datadog", name: "Datadog（Greenhouse 板）", enabled: true, kind: "greenhouse", url: "datadog" })
+    saveFeedSources(srcs)
+    const ov = await runOnceNow()
+    check("Phase 2 · 岗位中心真联网抓取", (ov.lastRun?.fetched ?? 0) > 0, `fetched=${ov.lastRun?.fetched} failed=${ov.lastRun?.failed.length} kept=${ov.sources.length} 个源`)
+    const target = await readJobTarget(studentDir)
+    check("Phase 2 · 读到求职目标（喂给匹配）", (target.roleKeywords?.length ?? 0) + (target.locations?.length ?? 0) > 0, JSON.stringify(target).slice(0, 260))
+    const feed = await feedForStudent(studentDir)
+    const matched = feed.entries
+      .filter((e) => feed.matches[e.id]?.matched)
+      .sort((a, b) => (feed.matches[b.id]?.score ?? 0) - (feed.matches[a.id]?.score ?? 0))
+    check("Phase 2 · 按学生画像筛出了岗位", matched.length > 0, `快照 ${feed.entries.length} 条，匹配 ${matched.length} 条`)
+    for (const e of matched.slice(0, 6)) console.log(`  ≈${feed.matches[e.id]!.score}  ${e.company} · ${e.title} · ${e.location}`)
+    const top = matched[0]
+
+    // ----- Phase 3: 针对头名岗位，AI 定向改简历 + 重编译 -----
+    if (top) {
+      console.log(`\n--- Phase 3 · 针对「${top.company} · ${top.title}」定向改简历 ---`)
+      const beforeTex = await newestResumeUtc(join(studentDir, "resume"))
+      const p3 = waitIdle(Number(process.env.NEO_REAL_PHASE3_MS) || 12 * 60_000, 2)
+      await sendPrompt(
+        `请为「${top.company} · ${top.title}」这份具体岗位微调学生的简历：先读材料原文和 resume/ 里最新的 main.tex，针对性调整（教育/项目/技能按岗位要求排序和措辞，bullet 动词开头+数字），然后调用 resume_compile 把 PDF 重新导出。改了什么最后用一句话说清楚。`,
+      ).catch((e) => check("下发「定向改简历」指令", false, String((e as Error)?.message ?? e)))
+      const r3 = await p3
+      const afterTex = await newestResumeUtc(join(studentDir, "resume"))
+      const recompiled = (r3.tools["resume_compile"] ?? 0) > 0 || afterTex > beforeTex
+      check("Phase 3 · 简历被针对该岗位修改并重新导出", recompiled, `resume_compile 调用=${r3.tools["resume_compile"] ?? 0} tex/pdf 时间戳 ${beforeTex}→${afterTex}`)
+
+      // ----- Phase 4: 从匹配岗位「投递」→ 打开真实招聘页自动填表（不提交）-----
+      console.log(`\n--- Phase 4 · 一键投递 → 真实招聘页自动填表（不提交）---`)
+      const task2 = await createTask({
+        studentName, jobType: top.internship ? "实习" : top.fullTime ? "全职" : "其他", taskGoal: "全流程投递",
+        outputLanguage: "zh", allowUpload: true,
+        company: top.company, jobTitle: top.title, applicationUrl: top.url,
+        notes: top.description ? `岗位描述（从岗位中心投递而来）：\n${top.description.slice(0, 1500)}` : undefined,
+      })
+      check("Phase 4 · 投递任务已建（一键投递路径）", Boolean(task2.taskDir), task2.taskDir)
+      const p4 = waitIdle(Number(process.env.NEO_REAL_PHASE4_MS) || 25 * 60_000, 3)
+      await openTask(task2.taskDir).catch((e) => check("打开投递工作台（自动开工）", false, String((e as Error)?.message ?? e)))
+      const r4 = await p4
+      const filled = ["browser_fill_page", "browser_fill_form", "browser_fill", "browser_choose", "browser_select", "browser_upload", "browser_click"].filter((t) => (r4.tools[t] ?? 0) > 0)
+      check("Phase 4 · 自动填表工具真被调用（未提交）", filled.length > 0 || r4.sawWork, `用到的工具：${filled.join("、") || "（只有其它动作）"} ${JSON.stringify(r4.tools)}`)
+      check("Phase 4 · 没有任何最终提交被按下", !refusedUnattended.some((x) => x.kind === "final_submit"), JSON.stringify(refusedUnattended))
+    } else {
+      console.log("  (没有匹配岗位，跳过 Phase 3/4)")
+    }
+
+    await writeFile(join(out, "page.png"), (await page.webContents.capturePage()).toPNG()).catch(() => undefined)
+    const refused = refusedUnattended.filter((x) => x.kind !== "final_submit")
+    await writeFile(
+      join(out, "run.json"),
+      JSON.stringify(
+        {
+          studentName, folder, workspace: state.workspace || "",
+          model: state.model ? `${state.model.providerID}/${state.model.modelID}` : "",
+          results, refused, refusedUnattended,
+          feed: { fetched: ov.lastRun?.fetched, failed: ov.lastRun?.failed },
+          matchedTop: matched.slice(0, 6).map((e) => ({ score: feed.matches[e.id]!.score, company: e.company, title: e.title, url: e.url })),
+        },
+        null,
+        2,
+      ),
+    )
+    console.log(`\n===== REAL RUN DONE · 结果 ${results.filter((r) => r.ok).length}/${results.length} =====`)
+    console.log(`报告在 ${join(out, "run.json")}`)
+  } catch (error) {
+    check("real run completed", false, error instanceof Error ? error.stack || error.message : String(error))
+    console.log(`\n===== REAL RUN FAILED =====`)
+  }
+  stopOpencode()
+  return results.every((r) => r.ok) ? 0 : 1
 }
 
 /**

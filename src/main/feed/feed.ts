@@ -64,8 +64,22 @@ function saveSnapshot(snap: Snapshot) {
 // ------------------------------------------------------------------ student targets (in their workspace)
 
 export async function readJobTarget(studentDir: string): Promise<JobTarget> {
+  const arr = (v: unknown): string[] => (Array.isArray(v) ? v.map((s) => String(s).trim()).filter(Boolean) : [])
+  const bool = (v: unknown): boolean => v === true || v === "true" || v === 1
   try {
-    return JSON.parse(await readFile(join(studentDir, "job_target.json"), "utf8")) as JobTarget
+    const raw = JSON.parse(await readFile(join(studentDir, "job_target.json"), "utf8")) as Record<string, unknown>
+    // The AI writes whatever profile-keys.json said. We documented both spellings at various times,
+    // so BOTH camelCase and snake_case are accepted (2026-10-17 real-run: model wrote role_keywords).
+    return {
+      roles: arr(raw.roles),
+      roleKeywords: arr(raw.roleKeywords ?? raw.role_keywords),
+      companies: arr(raw.companies),
+      locations: arr(raw.locations),
+      locationExclude: arr(raw.locationExclude ?? raw.location_exclude),
+      internshipsOnly: bool(raw.internshipsOnly ?? raw.internships_only),
+      fullTimeOnly: bool(raw.fullTimeOnly ?? raw.full_time_only),
+      skills: arr(raw.skills),
+    }
   } catch {
     return { roles: [], roleKeywords: [], companies: [], locations: [], locationExclude: [], internshipsOnly: false, skills: [] }
   }
